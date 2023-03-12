@@ -115,7 +115,7 @@ const Navbar = () => {
               className="flex justify-start items-center gap-6 text-emerald-50 "
             >
               <img
-                src="/public/logo.png"
+                src="/logo.png"
                 className="w-8"
                 alt="logo"
               />
