@@ -19,7 +19,7 @@ const SingleItem = () => {
 
   const getItemData = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/${itemType}/${id}`
+      `https://apimovies-backend.onrender.com/api/${itemType}/${id}`
     );
     console.log(response.data);
     return response.data;
@@ -35,7 +35,7 @@ const SingleItem = () => {
 
   const getKeywords = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/${itemType}/keywords/${id}`
+      `https://apimovies-backend.onrender.com/api/${itemType}/keywords/${id}`
     );
     console.log(response.data);
     return response.data;
@@ -51,7 +51,7 @@ const SingleItem = () => {
 
   const getSimilar = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/${itemType}/similar/${id}`
+      `https://apimovies-backend.onrender.com/api/${itemType}/similar/${id}`
     );
     return response.data;
   };

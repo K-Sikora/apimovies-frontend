@@ -15,7 +15,9 @@ import TrailerTvPopup from "./TrailerTvPopup";
 
 const BestTvPicks = () => {
   const getBestTv = async () => {
-    const response = await axios.get("http://localhost:8080/api/besttv");
+    const response = await axios.get(
+      "https://apimovies-backend.onrender.com/api/besttv"
+    );
     console.log(response.data.results);
 
     return response.data.results;

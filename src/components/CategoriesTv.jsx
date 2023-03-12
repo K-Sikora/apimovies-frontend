@@ -32,7 +32,9 @@ const CategoriesTv = () => {
   };
 
   const getGenres = async () => {
-    const response = await axios.get("http://localhost:8080/api/tvgenres");
+    const response = await axios.get(
+      "https://apimovies-backend.onrender.com/api/tvgenres"
+    );
     console.log(response.data);
     response.data.genres.map((item) => {
       item.name === category ? setCurrentUrlCategory(item.id) : null;
@@ -46,7 +48,7 @@ const CategoriesTv = () => {
   });
   const getCurrentTvCategory = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/tv/categories/${currentUrlCategory}/${parseInt(
+      `https://apimovies-backend.onrender.com/api/tv/categories/${currentUrlCategory}/${parseInt(
         page
       )}`
     );
@@ -56,7 +58,7 @@ const CategoriesTv = () => {
 
   const getCurrentCategoryBackdrop = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/tv/categories/${currentUrlCategory}/1`
+      `https://apimovies-backend.onrender.com/api/tv/categories/${currentUrlCategory}/1`
     );
     console.log(response.data);
     return response.data;
