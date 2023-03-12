@@ -120,7 +120,7 @@ const Navbar = () => {
                 alt="logo"
               />
               <h2 className="text-base text-emerald-50 first-letter:text-emerald-400 -ml-4  tracking-wide font-semibold pointer-events-none">
-                findastream
+                s
               </h2>
             </Link>
           </motion.div>
