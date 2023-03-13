@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import LandingSwiper from "./LandingSwiper";
 import { useQuery } from "react-query";
+import Loading from "../Loading";
 const Landing = () => {
   const getTrendingWeek = async () => {
     const response = await axios.get(
@@ -10,12 +11,14 @@ const Landing = () => {
     return response.data.results;
   };
 
-  const { data: trendingWeek } = useQuery({
+  const { isLoading, data: trendingWeek } = useQuery({
     queryKey: ["trendingWeek"],
     queryFn: getTrendingWeek,
     refetchOnWindowFocus: false,
   });
-
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div>
       <div className="h-screen relative -mb-12 max-w-6xl mx-auto mt-0 p-2 md:px-5 rounded-md ">

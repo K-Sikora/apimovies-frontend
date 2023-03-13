@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import Loading from "../Loading";
 import "react-circular-progressbar/dist/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
@@ -32,7 +33,9 @@ const LatestTrailers = () => {
   const [loading, setLoading] = useState(true);
   const [movieId, setMovieId] = useState();
   const [trailerVisible, setTrailerVisible] = useState(false);
-
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div className="max-w-6xl mx-auto px-5 mb-14 text-white">
       <h2 className=" text-2xl">
