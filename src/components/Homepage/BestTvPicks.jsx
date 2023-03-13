@@ -8,6 +8,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import LazyLoad from "react-lazyload";
 import { ScaleLoader } from "react-spinners";
+import Loading from "../Loading";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper";
@@ -32,6 +33,9 @@ const BestTvPicks = () => {
   const [loading, setLoading] = useState(true);
   const [movieId, setMovieId] = useState();
   const [trailerVisible, setTrailerVisible] = useState(false);
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <LazyLoad>
       <div className="max-w-6xl mx-auto px-5 text-white">

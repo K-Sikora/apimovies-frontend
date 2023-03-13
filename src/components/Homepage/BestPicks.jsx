@@ -10,6 +10,7 @@ import LazyLoad from "react-lazyload";
 import { ScaleLoader } from "react-spinners";
 import "swiper/css";
 import "swiper/css/pagination";
+import Loading from "../Loading";
 import { Navigation, Pagination } from "swiper";
 import TrailerPopup from "./TrailerPopup";
 
@@ -32,6 +33,9 @@ const BestPicks = () => {
   const [loading, setLoading] = useState(true);
   const [movieId, setMovieId] = useState();
   const [trailerVisible, setTrailerVisible] = useState(false);
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <LazyLoad>
       <div className="max-w-6xl mx-auto px-5 text-white mb-14">
