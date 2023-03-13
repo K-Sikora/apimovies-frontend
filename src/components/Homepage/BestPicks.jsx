@@ -13,7 +13,6 @@ import "swiper/css/pagination";
 import Loading from "../Loading";
 import { Navigation, Pagination } from "swiper";
 import TrailerPopup from "./TrailerPopup";
-
 const BestPicks = () => {
   const getBestMovies = async () => {
     const response = await axios.get(
@@ -33,9 +32,7 @@ const BestPicks = () => {
   const [loading, setLoading] = useState(true);
   const [movieId, setMovieId] = useState();
   const [trailerVisible, setTrailerVisible] = useState(false);
-  if (isLoading) {
-    return <Loading />;
-  }
+
   return (
     <LazyLoad>
       <div className="max-w-6xl mx-auto px-5 text-white mb-14">
@@ -68,6 +65,7 @@ const BestPicks = () => {
             modules={[Pagination]}
             className="mySwiper upcoming h-[26rem] md:h-[24rem] py-6 lg:h-[24rem]  cursor-grab relative  "
           >
+            {isLoading && <Loading />}
             {bestMovies &&
               bestMovies
                 .filter((item) => item.vote_count > 1000)

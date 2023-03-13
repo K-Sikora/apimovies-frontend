@@ -33,9 +33,7 @@ const LatestTrailers = () => {
   const [loading, setLoading] = useState(true);
   const [movieId, setMovieId] = useState();
   const [trailerVisible, setTrailerVisible] = useState(false);
-  if (isLoading) {
-    return <Loading />;
-  }
+
   return (
     <div className="max-w-6xl mx-auto px-5 mb-14 text-white">
       <h2 className=" text-2xl">
