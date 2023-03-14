@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import NotFound from "./NotFound";
 import { useParams } from "react-router-dom";
 import Similar from "./SingleItem/Similar";
 import Keywords from "./SingleItem/Keywords";
@@ -9,6 +8,7 @@ import ItemCoverImage from "./SingleItem/ItemCoverImage";
 import axios from "axios";
 import ItemDetails from "./SingleItem/ItemDetails";
 import { useQuery } from "react-query";
+import Loading from "./Loading";
 
 const SingleItem = () => {
   const { itemType, id } = useParams();
@@ -25,7 +25,7 @@ const SingleItem = () => {
     return response.data;
   };
 
-  const { data: itemData, isLoading } = useQuery({
+  const { data: itemData, isLoading: isLoading2 } = useQuery({
     queryKey: ["itemData"],
     queryFn: getItemData,
     refetchOnWindowFocus: false,
@@ -56,26 +56,28 @@ const SingleItem = () => {
     return response.data;
   };
 
-  const { data: similar } = useQuery({
+  const { data: similar, isLoading } = useQuery({
     queryKey: ["similar"],
     queryFn: getSimilar,
     refetchOnWindowFocus: false,
   });
 
-  if (isLoading) {
-    return <NotFound />;
-  }
   return (
     <div className="bg-stone-800 text-white">
       <Navbar />
       <div className="max-w-6xl mx-auto">
         {itemData && (
           <div className="min-h-screen gap-6 bg-stone-800 flex flex-col   py-5 px-0 justify-start">
-            <ItemInfo
-              episodesVisible={episodesVisible}
-              setEpisodesVisible={setEpisodesVisible}
-              itemData={itemData}
-            />
+            {isLoading2 ? (
+              <Loading />
+            ) : (
+              <ItemInfo
+                episodesVisible={episodesVisible}
+                setEpisodesVisible={setEpisodesVisible}
+                itemData={itemData}
+              />
+            )}
+
             <ItemCoverImage
               id={id}
               itemData={itemData}
@@ -94,10 +96,14 @@ const SingleItem = () => {
               itemData={itemData}
               itemType={itemType}
             />
-            <Similar
-              similar={similar}
-              itemType={itemType}
-            />
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <Similar
+                similar={similar}
+                itemType={itemType}
+              />
+            )}
           </div>
         )}
       </div>

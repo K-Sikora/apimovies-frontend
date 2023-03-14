@@ -8,6 +8,7 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import Loading from "./Loading";
 import axios from "axios";
 import Navbar from "./Navbar";
 const CategoriesTv = () => {
@@ -70,7 +71,7 @@ const CategoriesTv = () => {
     enabled: !!currentUrlCategory,
   });
 
-  const { data: currentTvCategory } = useQuery({
+  const { data: currentTvCategory, isLoading } = useQuery({
     queryKey: ["currentTvCategory"],
     queryFn: getCurrentTvCategory,
     refetchOnWindowFocus: false,
@@ -110,8 +111,10 @@ const CategoriesTv = () => {
           <div className="w-full h-full bg-black/30 absolute top-0 left-0 z-20"></div>
         </div>
         <div className="flex flex-col max-w-5xl mx-auto min-h-screen pb-6">
-          {currentTvCategory &&
-            currentTvCategory.results.map((item) => (
+          {isLoading ? (
+            <Loading />
+          ) : (
+            currentTvCategory?.results.map((item) => (
               <div className="flex h-40 gap-4 relative bg-stone-900 shadow-xl shadow-stone-900/60 mx-6 mt-6 pr-2 rounded-md">
                 <div className=" h-32 flex-shrink-0  ">
                   <Link to={`/tv/${item.id}`}>
@@ -164,7 +167,8 @@ const CategoriesTv = () => {
                   ></CircularProgressbar>
                 </div>
               </div>
-            ))}
+            ))
+          )}
         </div>
         <div className="flex items-center gap-3 justify-center py-4">
           <button
