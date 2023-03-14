@@ -65,10 +65,11 @@ const BestPicks = () => {
             modules={[Pagination]}
             className="mySwiper upcoming h-[26rem] md:h-[24rem] py-6 lg:h-[24rem]  cursor-grab relative  "
           >
-            {isLoading && <Loading />}
-            {bestMovies &&
+            {isLoading ? (
+              <Loading />
+            ) : (
               bestMovies
-                .filter((item) => item.vote_count > 1000)
+                ?.filter((item) => item.vote_count > 1000)
                 .map((item, index) => (
                   <SwiperSlide
                     key={index}
@@ -91,22 +92,22 @@ const BestPicks = () => {
                             textColor: "white",
                             trailColor: "#065f46",
                             pathColor: `
-                                ${
-                                  item.vote_average * 10 <= 30
-                                    ? `#ef4444`
-                                    : item.vote_average * 10 > 30 &&
-                                      item.vote_average * 10 <= 50
-                                    ? `#f97316`
-                                    : item.vote_average * 10 > 50 &&
-                                      item.vote_average * 10 < 70
-                                    ? `#facc15`
-                                    : item.vote_average * 10 >= 70 &&
-                                      item.vote_average * 10 <= 84
-                                    ? `#059669`
-                                    : `#10b981`
-                                }
-                                
-                                `,
+                  ${
+                    item.vote_average * 10 <= 30
+                      ? `#ef4444`
+                      : item.vote_average * 10 > 30 &&
+                        item.vote_average * 10 <= 50
+                      ? `#f97316`
+                      : item.vote_average * 10 > 50 &&
+                        item.vote_average * 10 < 70
+                      ? `#facc15`
+                      : item.vote_average * 10 >= 70 &&
+                        item.vote_average * 10 <= 84
+                      ? `#059669`
+                      : `#10b981`
+                  }
+                  
+                  `,
                           })}
                           className="h-10 w-10 bg-stone-800 rounded-full font-semibold "
                           value={item.vote_average * 10}
@@ -144,7 +145,8 @@ const BestPicks = () => {
                       </button>
                     </div>
                   </SwiperSlide>
-                ))}
+                ))
+            )}
             <div className="h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-r z-10 left-0 top-0 absolute pointer-events-none "></div>
             <div className="h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-l z-10 right-0 top-0 absolute pointer-events-none "></div>
           </Swiper>

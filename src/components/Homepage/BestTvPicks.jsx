@@ -66,9 +66,11 @@ const BestTvPicks = () => {
             modules={[Pagination]}
             className="mySwiper upcoming h-[26rem] md:h-[24rem] py-6 lg:h-[24rem]  cursor-grab relative  "
           >
-            {bestTv &&
+            {isLoading ? (
+              <Loading />
+            ) : (
               bestTv
-                .filter((item) => item.vote_count > 1000)
+                ?.filter((item) => item.vote_count > 1000)
                 .slice(1)
                 .map((item, index) => (
                   <SwiperSlide
@@ -145,7 +147,9 @@ const BestTvPicks = () => {
                       </button>
                     </div>
                   </SwiperSlide>
-                ))}
+                ))
+            )}
+
             <div className="h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-r z-10 left-0 top-0 absolute pointer-events-none "></div>
             <div className="h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-l z-10 right-0 top-0 absolute pointer-events-none "></div>
           </Swiper>

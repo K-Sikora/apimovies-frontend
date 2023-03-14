@@ -65,8 +65,10 @@ const LatestTrailers = () => {
           modules={[Pagination]}
           className="mySwiper upcoming h-[26rem] md:h-[24rem] py-6 lg:h-[24rem]   relative  "
         >
-          {upcomingMovies &&
-            upcomingMovies.map((item, index) => (
+          {isLoading ? (
+            <Loading />
+          ) : (
+            upcomingMovies?.map((item, index) => (
               <SwiperSlide
                 key={index}
                 className="flex flex-col relative justify-between p-1  "
@@ -145,7 +147,9 @@ const LatestTrailers = () => {
                   </button>
                 </div>
               </SwiperSlide>
-            ))}
+            ))
+          )}
+
           <div className="h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-r z-10 left-0 top-0 absolute pointer-events-none "></div>
           <div className="h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-l z-10 right-0 top-0 absolute pointer-events-none "></div>
         </Swiper>
