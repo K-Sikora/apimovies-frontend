@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Navbar from "./Navbar";
+import Loading from "./Loading";
 const Categories = () => {
   const [currentUrlCategory, setCurrentUrlCategory] = useState();
   const { category, page } = useParams();
@@ -55,7 +56,7 @@ const Categories = () => {
     console.log(response.data);
     return response.data;
   };
-  const { data: currentCategory } = useQuery({
+  const { data: currentCategory, isLoading } = useQuery({
     queryKey: ["currentCategory"],
     queryFn: getCurrentCategory,
     refetchOnWindowFocus: false,
@@ -111,8 +112,10 @@ const Categories = () => {
           <div className="w-full h-full bg-black/30 absolute top-0 left-0 z-20"></div>
         </div>
         <div className="flex flex-col max-w-5xl mx-auto min-h-screen pb-6">
-          {currentCategory &&
-            currentCategory.results.map((item) => (
+          {isLoading ? (
+            <Loading />
+          ) : (
+            currentCategory?.results.map((item) => (
               <div className="flex h-40 relative gap-4 bg-stone-900 shadow-xl shadow-stone-900/60 mx-6 mt-6 pr-2 rounded-md">
                 <div className=" h-32 flex-shrink-0  ">
                   <Link to={`/movie/${item.id}`}>
@@ -165,7 +168,8 @@ const Categories = () => {
                   ></CircularProgressbar>
                 </div>
               </div>
-            ))}
+            ))
+          )}
         </div>
         <div className="flex items-center gap-3 justify-center py-4">
           <button

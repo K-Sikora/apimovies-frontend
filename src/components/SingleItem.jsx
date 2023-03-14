@@ -9,7 +9,7 @@ import axios from "axios";
 import ItemDetails from "./SingleItem/ItemDetails";
 import { useQuery } from "react-query";
 import Loading from "./Loading";
-
+import NotFound from "./NotFound";
 const SingleItem = () => {
   const { itemType, id } = useParams();
   const [episodesVisible, setEpisodesVisible] = useState(false);
@@ -61,7 +61,9 @@ const SingleItem = () => {
     queryFn: getSimilar,
     refetchOnWindowFocus: false,
   });
-
+  if (isLoading) {
+    return <NotFound />;
+  }
   return (
     <div className="bg-stone-800 text-white">
       <Navbar />
