@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-const TrailerPopup = (props) => {
+const TrailerTvPopup = (props) => {
   const getTrailer = async () => {
     const response = await axios.get(
       `https://apimovies-backend.onrender.com/api/tv/trailer/${props.movieId}`
@@ -60,4 +60,4 @@ const TrailerPopup = (props) => {
   );
 };
 
-export default TrailerPopup;
+export default TrailerTvPopup;
