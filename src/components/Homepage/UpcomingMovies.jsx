@@ -17,7 +17,7 @@ const date = new Date();
 const LatestTrailers = () => {
   const getUpcomingMovies = async () => {
     const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/movie/upcoming"
+      "http://localhost:8080/api/movie/upcoming"
     );
     console.log(response.data.results);
 

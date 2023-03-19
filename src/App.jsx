@@ -10,7 +10,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="font-[Poppins] bg-neutral-900 ">
+      <div className="font-[Poppins] dark:bg-neutral-900 bg-stone-100 duration-300  ">
         <Routes>
           <Route
             path="/"

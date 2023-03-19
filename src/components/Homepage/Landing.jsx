@@ -5,9 +5,7 @@ import { useQuery } from "react-query";
 import Loading from "../Loading";
 const Landing = () => {
   const getTrendingWeek = async () => {
-    const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/trending-week"
-    );
+    const response = await axios.get("http://localhost:8080/api/trending-week");
     return response.data.results;
   };
 

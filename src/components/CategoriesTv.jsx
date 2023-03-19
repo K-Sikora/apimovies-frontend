@@ -33,9 +33,7 @@ const CategoriesTv = () => {
   };
 
   const getGenres = async () => {
-    const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/tvgenres"
-    );
+    const response = await axios.get("http://localhost:8080/api/tvgenres");
     console.log(response.data);
     response.data.genres.map((item) => {
       item.name === category ? setCurrentUrlCategory(item.id) : null;
@@ -49,7 +47,7 @@ const CategoriesTv = () => {
   });
   const getCurrentTvCategory = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/tv/categories/${currentUrlCategory}/${parseInt(
+      `http://localhost:8080/api/tv/categories/${currentUrlCategory}/${parseInt(
         page
       )}`
     );
@@ -59,7 +57,7 @@ const CategoriesTv = () => {
 
   const getCurrentCategoryBackdrop = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/tv/categories/${currentUrlCategory}/1`
+      `http://localhost:8080/api/tv/categories/${currentUrlCategory}/1`
     );
     console.log(response.data);
     return response.data;
@@ -84,7 +82,7 @@ const CategoriesTv = () => {
     window && window.scroll(0, 0);
   };
   return (
-    <div className="bg-stone-800">
+    <div className="dark:bg-stone-800 bg-stone-100 duration-300">
       <Navbar />
       <div className="  text-white pb-4 ">
         <div className="relative py-24 md:py-40 lg:py-48 ">

@@ -19,7 +19,7 @@ const SingleItem = () => {
 
   const getItemData = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/${itemType}/${id}`
+      `http://localhost:8080/api/${itemType}/${id}`
     );
     console.log(response.data);
     return response.data;
@@ -35,7 +35,7 @@ const SingleItem = () => {
 
   const getKeywords = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/${itemType}/keywords/${id}`
+      `http://localhost:8080/api/${itemType}/keywords/${id}`
     );
     console.log(response.data);
     return response.data;
@@ -51,7 +51,7 @@ const SingleItem = () => {
 
   const getSimilar = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/${itemType}/similar/${id}`
+      `http://localhost:8080/api/${itemType}/similar/${id}`
     );
     return response.data;
   };
@@ -65,11 +65,11 @@ const SingleItem = () => {
     return <NotFound />;
   }
   return (
-    <div className="bg-stone-800 text-white">
+    <div className=" text-white">
       <Navbar />
       <div className="max-w-6xl mx-auto">
         {itemData && (
-          <div className="min-h-screen gap-6 bg-stone-800 flex flex-col   py-5 px-0 justify-start">
+          <div className="min-h-screen gap-6 dark:bg-stone-800 bg-stone-100 duration-300 flex flex-col   py-5 px-0 justify-start">
             {isLoading2 ? (
               <Loading />
             ) : (

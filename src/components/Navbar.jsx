@@ -6,6 +6,7 @@ import {
   faMoon,
   faClose,
   faStar,
+  faSun,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
@@ -62,15 +63,38 @@ const Navbar = () => {
     isError,
   } = useQuery(["searchResults", currentQuery], async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/search-movie?query=${currentQuery}`
+      `http://localhost:8080/api/search-movie?query=${currentQuery}`
     );
     console.log(response.data.results);
     return response.data.results;
   });
 
+  const [switchVisible, setSwitchVisible] = useState("dark");
+
+  useEffect(() => {
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", "dark");
+    }
+    document.documentElement.classList.add(localStorage.getItem("theme"));
+  }, []);
+
+  const handleDarkMode = () => {
+    if (localStorage.getItem("theme") === "dark") {
+      setSwitchVisible("light");
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    } else if (localStorage.getItem("theme") === "light") {
+      setSwitchVisible("dark");
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+    }
+  };
+
   return (
     <header className="relative z-[200] top-0 left-0">
-      <nav className=" bg-stone-900 flex items-center justify-center  md:h-20 h-16 ">
+      <nav className=" dark:bg-stone-900 bg-stone-100 duration-300 flex items-center justify-center  md:h-20 h-16 ">
         <motion.div
           variants={parentVariant}
           animate="visible"
@@ -238,8 +262,20 @@ const Navbar = () => {
               ></FontAwesomeIcon>
               <h2 className="text-sm font-bold">Menu</h2>
             </button>
-
-            <FontAwesomeIcon icon={faMoon}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faSun}
+              className={`w-5 h-5  cursor-pointer ${
+                localStorage.getItem("theme") === "light" ? "hidden" : ""
+              }`}
+              onClick={handleDarkMode}
+            ></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faMoon}
+              className={`w-5 h-5 cursor-pointer ${
+                localStorage.getItem("theme") === "dark" ? "hidden" : ""
+              }`}
+              onClick={handleDarkMode}
+            ></FontAwesomeIcon>
           </motion.div>
         </motion.div>
       </nav>
