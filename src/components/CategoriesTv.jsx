@@ -106,14 +106,14 @@ const CategoriesTv = () => {
             />
           )}
 
-          <div className="w-full h-full bg-black/30 absolute top-0 left-0 z-20"></div>
+          <div className="w-full h-full dark:bg-dark-900/40 bg-dark-900/20 duration-300  absolute top-0 left-0 z-20"></div>
         </div>
         <div className="flex flex-col max-w-5xl mx-auto min-h-screen pb-6">
           {isLoading ? (
             <Loading />
           ) : (
             currentTvCategory?.results.map((item) => (
-              <div className="flex h-40 gap-4 relative bg-stone-900 shadow-xl shadow-stone-900/60 mx-6 mt-6 pr-2 rounded-md">
+              <div className="flex h-40 duration-300 gap-4 relative bg-light dark:bg-stone-900 shadow-xl dark:shadow-stone-900/60 shadow-stone-900/30 mx-6 mt-6 pr-2 rounded-md">
                 <div className=" h-32 flex-shrink-0  ">
                   <Link to={`/tv/${item.id}`}>
                     <img
@@ -125,7 +125,7 @@ const CategoriesTv = () => {
                 <div className="flex   justify-around flex-col h-full">
                   <div>
                     <Link to={`/tv/${item.id}`}>
-                      <h4 className="text-base  md:text-xl inline-block">
+                      <h4 className="text-base dark:text-light text-dark-900  md:text-xl inline-block">
                         {item.name}
                       </h4>
                     </Link>
@@ -134,7 +134,7 @@ const CategoriesTv = () => {
                       {item.first_air_date}
                     </p>
                   </div>
-                  <p className="line-clamp text-stone-100 text-sm md:text-base">
+                  <p className="line-clamp dark:text-light text-dark-700 text-sm md:text-base">
                     {item.overview}{" "}
                   </p>
                 </div>
@@ -181,7 +181,7 @@ const CategoriesTv = () => {
           <form className="flex gap-2">
             <input
               type="text"
-              className="w-10 bg-stone-500 py-[3px] outline-none outline-offset-0 focus:outline-emerald-400 duration-150 text-center placeholder:text-stone-300 "
+              className="w-10 dark:bg-stone-500 bg-light dark:border-none border-2 border-dark-700 py-[3px] outline-none outline-offset-0 focus:outline-emerald-400 duration-150 text-center dark:placeholder:text-stone-300 dark:text-light text-dark-900 placeholder:text-dark-700/60 "
               placeholder={page}
               onChange={(e) => setPageValue(e.target.value)}
             />
@@ -213,7 +213,7 @@ const CategoriesTv = () => {
           </button>
         </div>
 
-        <p className="flex justify-center items-center">
+        <p className="flex justify-center items-center dark:text-light text-dark-700">
           {currentTvCategory && "Total pages: " + currentTvCategory.total_pages}
         </p>
       </div>

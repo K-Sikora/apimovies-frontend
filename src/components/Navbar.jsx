@@ -65,7 +65,6 @@ const Navbar = () => {
     const response = await axios.get(
       `http://localhost:8080/api/search-movie?query=${currentQuery}`
     );
-    console.log(response.data.results);
     return response.data.results;
   });
 
@@ -157,7 +156,7 @@ const Navbar = () => {
                 onBlur={focusLeaveHandler}
                 onFocusCapture={updateSearchHandler}
                 onChange={updateSearchHandler}
-                className="w-[26rem] text-light shadow-md shadow-dark-700/20 dark:text-dark-700 dark:bg-light bg-dark-700/90 font-[Roboto]  outline-none focus:outline-[2.5px] focus:outline-emerald-500 focus:-outline-offset-1 px-3 rounded-md  text-base py-[.55rem] placeholder:text-base "
+                className="w-[26rem] text-dark-700 shadow-md shadow-dark-700/20  dark:bg-light  font-[Roboto]  outline-none focus:outline-[2.5px] focus:outline-emerald-500 focus:-outline-offset-1 px-3 rounded-md  text-base py-[.55rem] placeholder:text-base  "
                 placeholder="Search for a movie/show..."
               />
               <FontAwesomeIcon
@@ -188,7 +187,7 @@ const Navbar = () => {
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
                           transition={{ delay: index / 20 }}
-                          className="text-white flex z-[200] cursor-pointer  py-2 px-2 bg-stone-800 gap-3 w-full hover:bg-stone-600 transition-[background-color] duration-500"
+                          className="dark:text-white flex z-[200] cursor-pointer text-dark-900 py-2 px-2 dark:bg-stone-800 bg-light gap-3 w-full hover:bg-stone-600 transition-[background-color] duration-500"
                         >
                           <img
                             className=" w-[60px]"
@@ -304,7 +303,7 @@ const Navbar = () => {
                       animate={{ opacity: 1 }}
                       initial={{ opacity: 0 }}
                       transition={{ delay: index / 20 }}
-                      className="text-white flex z-[100] cursor-pointer  py-2 px-2 bg-stone-800 gap-3 w-full hover:bg-stone-600 transition-[background-color] duration-500"
+                      className="text-white flex z-[100] cursor-pointer dark:border-none border-2  py-2 px-2 bg-light dark:bg-stone-800 gap-3 w-full dark:hover:bg-stone-600 hover:bg-stone-200 transition-[background-color] duration-500"
                     >
                       <img
                         className=" w-[60px]"
@@ -319,7 +318,9 @@ const Navbar = () => {
                         }
                       />
                       <div className="flex flex-col justify-around">
-                        <h3 className="text-base">{item.title || item.name}</h3>
+                        <h3 className="text-base dark:text-light text-dark-900 ">
+                          {item.title || item.name}
+                        </h3>
                         {item.vote_average !== 0 && (
                           <span className="flex items-center gap-1">
                             {item.vote_average && (
@@ -329,7 +330,7 @@ const Navbar = () => {
                               ></FontAwesomeIcon>
                             )}
 
-                            <h4 className="">
+                            <h4 className="dark:text-light text-dark-700">
                               {item.vote_average
                                 ? item.vote_average.toFixed(2)
                                 : ""}
@@ -338,13 +339,13 @@ const Navbar = () => {
                         )}
 
                         {item.media_type == "movie" ? (
-                          <h5 className="text-sm">
+                          <h5 className="text-sm dark:text-light text-dark-900">
                             Movie
                             {item.release_date &&
                               ", " + item.release_date.slice(0, 4)}
                           </h5>
                         ) : item.media_type == "tv" ? (
-                          <h5 className="text-sm">
+                          <h5 className="text-sm dark:text-light text-dark-900">
                             TV Show
                             {item.first_air_date &&
                               ", " + item.first_air_date.slice(0, 4)}{" "}

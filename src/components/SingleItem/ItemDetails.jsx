@@ -5,8 +5,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 const ItemDetails = (props) => {
+  const [theme, setTheme] = useState();
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme"));
+    console.log(theme);
+  }, [theme]);
+  theme && console.log(theme);
   return (
     <>
       {props.itemData.vote_average > 0 && (
@@ -14,7 +20,7 @@ const ItemDetails = (props) => {
           <CircularProgressbar
             styles={buildStyles({
               textSize: "26px",
-              textColor: "white",
+              textColor: `grey`,
               trailColor: "#065f46",
               pathColor: `
               ${
@@ -34,7 +40,7 @@ const ItemDetails = (props) => {
               
               `,
             })}
-            className="h-12 w-12 "
+            className="h-12 w-12   "
             value={props.itemData.vote_average * 10}
             text={`${props.itemData.vote_average.toFixed(1) * 10 + "%"}`}
           ></CircularProgressbar>
@@ -52,7 +58,7 @@ const ItemDetails = (props) => {
               onClick={() => {
                 props.setIsVisibleKeywords(!props.isVisibleKeywords);
               }}
-              className="flex items-center text-sm font-medium gap-2 cursor-pointer"
+              className="flex items-center  text-sm font-medium gap-2 cursor-pointer"
             >
               Keywords <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
             </button>

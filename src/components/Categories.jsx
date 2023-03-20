@@ -81,7 +81,7 @@ const Categories = () => {
   };
 
   return (
-    <div className="bg-stone-800">
+    <div className="dark:bg-stone-800 bg-light duration-300">
       <Navbar />
       <div className="  text-white pb-4 ">
         <div className="relative py-24 md:py-28 lg:py-32 ">
@@ -107,14 +107,14 @@ const Categories = () => {
             />
           )}
 
-          <div className="w-full h-full bg-black/30 absolute top-0 left-0 z-20"></div>
+          <div className="w-full h-full dark:bg-dark-900/40 bg-dark-900/20 absolute top-0 left-0 z-20"></div>
         </div>
         <div className="flex flex-col max-w-5xl mx-auto min-h-screen pb-6">
           {isLoading ? (
             <Loading />
           ) : (
             currentCategory?.results.map((item) => (
-              <div className="flex h-40 relative gap-4 bg-stone-900 shadow-xl shadow-stone-900/60 mx-6 mt-6 pr-2 rounded-md">
+              <div className="flex h-40 relative duration-300 gap-4 bg-light dark:bg-stone-900  shadow-xl dark:shadow-stone-900/60 shadow-stone-900/30 mx-6 mt-6 pr-2 rounded-md">
                 <div className=" h-32 flex-shrink-0  ">
                   <Link to={`/movie/${item.id}`}>
                     <img
@@ -126,7 +126,7 @@ const Categories = () => {
                 <div className="flex   justify-around flex-col h-full">
                   <div>
                     <Link to={`/movie/${item.id}`}>
-                      <h4 className="text-base  md:text-xl inline-block">
+                      <h4 className="text-base dark:text-light text-dark-900 md:text-xl inline-block">
                         {item.title}
                       </h4>
                     </Link>
@@ -135,7 +135,7 @@ const Categories = () => {
                       {item.release_date}
                     </p>
                   </div>
-                  <p className="line-clamp text-stone-100 text-sm md:text-base">
+                  <p className="line-clamp dark:text-light text-dark-700 text-sm md:text-base">
                     {item.overview}{" "}
                   </p>
                 </div>
@@ -182,7 +182,7 @@ const Categories = () => {
           <form className="flex gap-2">
             <input
               type="text"
-              className="w-16 bg-stone-500 py-[3px] outline-none outline-offset-0 focus:outline-emerald-400 duration-150 text-center placeholder:text-stone-300 "
+              className="w-10 dark:bg-stone-500 bg-light dark:border-none border-2 border-dark-700 py-[3px] outline-none outline-offset-0 focus:outline-emerald-400 duration-150 text-center dark:placeholder:text-stone-300 dark:text-light text-dark-900 placeholder:text-dark-700/60 "
               placeholder={parseInt(page)}
               onChange={(e) => setPageValue(e.target.value)}
             />
@@ -213,7 +213,7 @@ const Categories = () => {
             ></FontAwesomeIcon>
           </button>
         </div>
-        <div className="flex items-center justify-center pb-4"></div>
+        <div className="flex items-center justify-center pb-4 text-dark-700"></div>
         <p className="flex justify-center items-center">
           {currentCategory && "Total pages: " + currentCategory.total_pages}
         </p>

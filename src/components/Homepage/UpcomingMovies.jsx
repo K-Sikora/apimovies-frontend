@@ -35,7 +35,7 @@ const LatestTrailers = () => {
   const [trailerVisible, setTrailerVisible] = useState(false);
 
   return (
-    <div className="max-w-6xl mx-auto px-5 mb-14 dark:text-white text-dark-900">
+    <div className="max-w-6xl mx-auto px-5 mb-14 dark:text-light text-dark-900">
       <h2 className=" text-2xl">
         <span className=" bg-emerald-500 mr-2 px-[2px] rounded-md"></span>
         New and upcoming movies
@@ -78,10 +78,10 @@ const LatestTrailers = () => {
                     onLoad={() => {
                       setLoading(false);
                     }}
-                    className=" h-60 md:h-52 object-cover rounded-sm cursor-grab"
+                    className=" h-60 shadow-lg shadow-dark-900/30 md:h-52 object-cover rounded-sm cursor-grab"
                     src={`https://image.tmdb.org/t/p/w500` + item.poster_path}
                   />
-                  <div className="flex mt-2 absolute bottom-0 left-0 px-2 pointer-events-none bg-stone-900/50 w-full text-sm font-medium  h-1/5 items-center">
+                  <div className="flex mt-2 absolute bottom-0 left-0 px-2 pointer-events-none dark:bg-stone-900/50 w-full text-sm font-medium  h-1/5 items-center">
                     {new Date(item.release_date) < date && (
                       <CircularProgressbar
                         styles={buildStyles({
@@ -106,7 +106,7 @@ const LatestTrailers = () => {
                                 
                                 `,
                         })}
-                        className="h-10 w-10 bg-stone-800 rounded-full font-semibold "
+                        className="h-10 w-10 bg-stone-800 translate-x-1 -translate-y-1 rounded-full font-semibold "
                         value={item.vote_average * 10}
                         text={`${item.vote_average.toFixed(1) * 10 + "%"}`}
                       ></CircularProgressbar>

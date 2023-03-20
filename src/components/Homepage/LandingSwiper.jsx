@@ -55,7 +55,7 @@ const LandingSwiper = (props) => {
                   alt="cover image"
                 />
                 <a href={`/${item.media_type}/${item.id}`}>
-                  <div className="absolute top-0 left-0 bg-black/50 w-full h-full z-50  hover:bg-black/20 duration-300 cursor-pointer "></div>
+                  <div className="absolute top-0 left-0 bg-dark-900/20 dark:bg-dark-900/50 w-full h-full z-50 hover:bg-dark-900/50 dark:hover:bg-dark-900/20 duration-300 cursor-pointer "></div>
                   <div className="absolute w-full left-0  bottom-[10%] gap-3 flex  pointer-events-none z-[100]">
                     <div className="w-10% ">
                       <div className=" h-40 w-24 ">

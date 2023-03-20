@@ -13,7 +13,7 @@ const Similar = (props) => {
     <LazyLoad>
       {props.similar && (
         <div className="px-5 flex flex-col gap-6 ">
-          <h3 className="text-2xl text-stone-100">
+          <h3 className="text-2xl dark:text-light text-dark-900">
             {props.itemType === "movie"
               ? "See similar movies"
               : "See similar shows"}
@@ -85,10 +85,10 @@ const Similar = (props) => {
                             )}
                           </div>
                         </a>
-                        <h5 className="mt-2 font-medium line-clamp text-sm text-stone-100">
+                        <h5 className="mt-2 font-medium line-clamp text-base text-dark-900 dark:text-light">
                           {similarItem.name || similarItem.title}
                         </h5>
-                        <h6 className="mt-2 font-medium text-base  text-stone-300">
+                        <h6 className="mt-2 font-medium text-sm text-dark-700  dark:text-stone-300">
                           {(similarItem.release_date &&
                             similarItem.release_date.slice(0, 4)) ||
                             (similarItem.first_air_date &&

@@ -42,11 +42,11 @@ const ItemCoverImage = (props) => {
         <div className="top-1/2 flex items-center justify-center gap-2 left-1/2 absolute pointer-events-none -translate-y-1/2 -translate-x-1/2">
           <div className="border-[3px] h-12  w-12 rounded-full flex items-center justify-center  group-hover:border-emerald-600 group-hover:text-emerald-200 ease-linear duration-200 cursor-pointer pointer-events-none">
             <FontAwesomeIcon
-              className="text-lg "
+              className="text-lg text-light"
               icon={faPlay}
             ></FontAwesomeIcon>
           </div>
-          <h4 className="text-lg font-medium ">Play trailer</h4>
+          <h4 className="text-lg font-medium text-light">Play trailer</h4>
         </div>
       </div>
       {trailerVisible && props.itemType === "tv" && (

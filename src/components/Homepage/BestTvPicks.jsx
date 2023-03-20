@@ -80,12 +80,12 @@ const BestTvPicks = () => {
                         onLoad={() => {
                           setLoading(false);
                         }}
-                        className=" h-60 md:h-52 object-cover rounded-sm cursor-grab"
+                        className=" h-60 md:h-52 object-cover shadow-lg shadow-dark-900/30 rounded-sm cursor-grab"
                         src={
                           `https://image.tmdb.org/t/p/w500` + item.poster_path
                         }
                       />
-                      <div className="flex mt-2 absolute bottom-0 left-0 px-2 bg-stone-900/50 pointer-events-none w-full text-sm font-medium  h-1/5 items-center">
+                      <div className="flex mt-2 absolute bottom-0 left-0 px-2 dark:bg-stone-900/50 pointer-events-none w-full text-sm font-medium  h-1/5 items-center">
                         <CircularProgressbar
                           styles={buildStyles({
                             textSize: "28px",
@@ -109,7 +109,7 @@ const BestTvPicks = () => {
                                 
                                 `,
                           })}
-                          className="h-10 w-10 bg-stone-800 rounded-full font-semibold "
+                          className="h-10 w-10 translate-x-1 -translate-y-1 bg-stone-800 rounded-full font-semibold "
                           value={item.vote_average * 10}
                           text={`${item.vote_average.toFixed(1) * 10 + "%"}`}
                         ></CircularProgressbar>

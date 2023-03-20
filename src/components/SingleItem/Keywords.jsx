@@ -19,7 +19,7 @@ const Keywords = (props) => {
                   initial={{ opacity: 0 }}
                   transition={{ delay: index / 20 }}
                   key={index}
-                  className="capitalize text-stone-100 text-sm bg-stone-800 px-2 hover:bg-stone-700 transition-[background-color] duration-150 py-[1px] rounded-md "
+                  className="capitalize dark:text-stone-100 text-sm dark:bg-stone-800 bg-stone-200  px-2  transition-[background-color] duration-150 py-[1px] cursor-default rounded-md "
                 >
                   {k.name}
                 </motion.button>
@@ -31,7 +31,7 @@ const Keywords = (props) => {
                   initial={{ opacity: 0 }}
                   transition={{ delay: index / 20 }}
                   key={index}
-                  className="capitalize text-stone-100 text-sm bg-stone-800 px-2 hover:bg-stone-700 transition-[background-color] duration-150 py-[1px] rounded-md "
+                  className="capitalize dark:text-stone-100 text-sm dark:bg-stone-800 bg-stone-200  px-2  transition-[background-color] duration-150 py-[1px] cursor-default rounded-md "
                 >
                   {k.name}
                 </motion.button>
@@ -45,7 +45,7 @@ const Keywords = (props) => {
             <a href={`/${props.itemType}/category/${item.name}/1`}>
               <button
                 key={index}
-                className="border-[2px] text-stone-200 font-normal border-stone-600 hover:border-stone-500 duration-300 px-4 text-sm py-2 rounded-full"
+                className="border-[2px] dark:text-light text-dark-900 font-normal border-stone-600 dark:hover:border-stone-500 hover:border-stone-400 duration-300 px-4 text-sm py-2 rounded-full"
               >
                 {item.name}
               </button>

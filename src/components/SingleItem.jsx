@@ -65,11 +65,11 @@ const SingleItem = () => {
     return <NotFound />;
   }
   return (
-    <div className=" text-white">
+    <div className=" dark:text-light text-dark-900">
       <Navbar />
       <div className="max-w-6xl mx-auto">
         {itemData && (
-          <div className="min-h-screen gap-6 dark:bg-stone-800 bg-stone-100 duration-300 flex flex-col   py-5 px-0 justify-start">
+          <div className="min-h-screen gap-6 dark:bg-dark-900 bg-stone-100 duration-300 flex flex-col py-5 px-0 justify-start">
             {isLoading2 ? (
               <Loading />
             ) : (
