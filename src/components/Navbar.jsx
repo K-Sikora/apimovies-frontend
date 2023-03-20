@@ -94,7 +94,7 @@ const Navbar = () => {
 
   return (
     <header className="relative z-[200] top-0 left-0">
-      <nav className=" dark:bg-stone-900 bg-stone-100 duration-300 flex items-center justify-center  md:h-20 h-16 ">
+      <nav className=" dark:bg-dark-900 bg-light duration-300 flex items-center justify-center  md:h-20 h-16 ">
         <motion.div
           variants={parentVariant}
           animate="visible"
@@ -115,11 +115,11 @@ const Navbar = () => {
                     onFocusCapture={updateSearchHandler}
                     onChange={updateSearchHandler}
                     autoFocus
-                    className=" w-full h-full px-4 bg-stone-900 outline-none focus:outline-2 focus:-outline-offset-4 text-white focus:outline-emerald-400 pr-12"
+                    className=" w-full h-full px-4 dark:bg-dark-900 bg-light outline-none focus:outline-2 focus:-outline-offset-4 dark:text-light text-dark-900 focus:outline-emerald-400 pr-12"
                     placeholder="Search for a movie/show..."
                   />
                   <FontAwesomeIcon
-                    className="absolute cursor-pointer right top-0 text-2xl right-0 p-5 text-white"
+                    className="absolute cursor-pointer right top-0 text-2xl right-0 p-5 dark:text-light text-dark-900"
                     onClick={() => {
                       setSearchVisible(!searchVisible);
                       setCurrentQuery("");
@@ -143,7 +143,7 @@ const Navbar = () => {
                 className="w-8"
                 alt="logo"
               />
-              <h2 className="text-base text-emerald-50 first-letter:text-emerald-400 -ml-4  tracking-wide font-semibold pointer-events-none">
+              <h2 className="text-base dark:text-light text-dark-900 first-letter:text-emerald-400 -ml-4  tracking-wide font-semibold pointer-events-none">
                 koxstrona
               </h2>
             </Link>
@@ -157,11 +157,11 @@ const Navbar = () => {
                 onBlur={focusLeaveHandler}
                 onFocusCapture={updateSearchHandler}
                 onChange={updateSearchHandler}
-                className="w-[26rem] text-stone-800 font-[Roboto] rounded-sm outline-none focus:outline-[2.5px] focus:outline-emerald-500 focus:-outline-offset-1 px-3  text-base py-[.4rem] placeholder:text-base "
+                className="w-[26rem] text-light shadow-md shadow-dark-700/20 dark:text-dark-700 dark:bg-light bg-dark-700/90 font-[Roboto]  outline-none focus:outline-[2.5px] focus:outline-emerald-500 focus:-outline-offset-1 px-3 rounded-md  text-base py-[.55rem] placeholder:text-base "
                 placeholder="Search for a movie/show..."
               />
               <FontAwesomeIcon
-                className="absolute cursor-pointer  p-[0.6rem]  top-[0.7px] right-0 text-zinc-600 "
+                className="absolute   p-[0.75rem]  top-[0.7px]  right-0 text-zinc-500 "
                 icon={faSearch}
               ></FontAwesomeIcon>
             </div>
@@ -249,7 +249,7 @@ const Navbar = () => {
             className="flex  items-center justify-end gap-6  text-xl text-emerald-50"
           >
             <FontAwesomeIcon
-              className="cursor-pointer md:hidden"
+              className="cursor-pointer md:hidden dark:text-light text-dark-900"
               onClick={() => {
                 setSearchVisible(!searchVisible);
               }}
@@ -257,21 +257,23 @@ const Navbar = () => {
             ></FontAwesomeIcon>
             <button className="flex items-center justify-center gap-2">
               <FontAwesomeIcon
-                className="text-lg"
+                className="text-lg dark:text-light text-dark-900"
                 icon={faBars}
               ></FontAwesomeIcon>
-              <h2 className="text-sm font-bold">Menu</h2>
+              <h2 className="text-sm font-bold dark:text-light text-dark-900">
+                Menu
+              </h2>
             </button>
             <FontAwesomeIcon
               icon={faSun}
-              className={`w-5 h-5  cursor-pointer ${
+              className={`w-5 h-5 dark:text-light text-dark-900 cursor-pointer ${
                 localStorage.getItem("theme") === "light" ? "hidden" : ""
               }`}
               onClick={handleDarkMode}
             ></FontAwesomeIcon>
             <FontAwesomeIcon
               icon={faMoon}
-              className={`w-5 h-5 cursor-pointer ${
+              className={`w-5 h-5 dark:text-light text-dark-900 cursor-pointer ${
                 localStorage.getItem("theme") === "dark" ? "hidden" : ""
               }`}
               onClick={handleDarkMode}
