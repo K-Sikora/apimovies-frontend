@@ -32,7 +32,7 @@ const TrailerTvPopup = (props) => {
           ) : (
             <div className="w-full h-full flex items-center justify-center">
               <iframe
-                className="w-full max-w-6xl aspect-video"
+                className="w-full max-w-6xl aspect-video max-h-screen"
                 src={`https://www.youtube.com/embed/${
                   trailerMovie.results[trailerMovie.results.length - 1].key
                 }`}
@@ -52,7 +52,7 @@ const TrailerTvPopup = (props) => {
         }}
       >
         <FontAwesomeIcon
-          className="absolute top-4 right-4 p-2 text-2xl"
+          className="absolute top-4 right-4 p-2 text-2xl text-light "
           icon={faClose}
         ></FontAwesomeIcon>
       </button>

@@ -26,15 +26,15 @@ const TrailerPopup = (props) => {
       className="fixed flex items-center justify-center top-0 left-0 w-full h-screen bg-black/90 z-[500] "
     >
       {trailerMovie && (
-        <div className="w-full h-full">
+        <div className="w-full h-full ">
           {trailerMovie.results.length === 0
             ? "No trailer found"
             : trailerMovie.results
                 .filter((item) => item.name.toLowerCase().includes("trailer"))
                 .map((item) => (
-                  <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-full h-full flex items-center justify-center ">
                     <iframe
-                      className="w-full max-w-6xl aspect-video"
+                      className="w-full max-w-6xl aspect-video max-h-screen"
                       src={`https://www.youtube.com/embed/${item.key}`}
                       title="YouTube video player"
                       frameborder="0"
@@ -52,7 +52,7 @@ const TrailerPopup = (props) => {
         }}
       >
         <FontAwesomeIcon
-          className="absolute top-4 right-4 p-2 text-2xl"
+          className="absolute top-4 right-4 p-2 text-2xl  text-light"
           icon={faClose}
         ></FontAwesomeIcon>
       </button>

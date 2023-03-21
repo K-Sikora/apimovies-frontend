@@ -20,7 +20,23 @@ const ItemDetails = (props) => {
           <CircularProgressbar
             styles={buildStyles({
               textSize: "26px",
-              textColor: `grey`,
+              textColor: `
+              ${
+                props.itemData.vote_average * 10 <= 30
+                  ? `#ef4444`
+                  : props.itemData.vote_average * 10 > 30 &&
+                    props.itemData.vote_average * 10 <= 50
+                  ? `#f97316`
+                  : props.itemData.vote_average * 10 > 50 &&
+                    props.itemData.vote_average * 10 <= 70
+                  ? `#facc15`
+                  : props.itemData.vote_average * 10 > 70 &&
+                    props.itemData.vote_average * 10 <= 84
+                  ? `#059669`
+                  : `#10b981`
+              }
+              
+              `,
               trailColor: "#065f46",
               pathColor: `
               ${
