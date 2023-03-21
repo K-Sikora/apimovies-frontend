@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 const Navbar = () => {
   const [searchVisible, setSearchVisible] = useState(false);
   const [currentQuery, setCurrentQuery] = useState("");
@@ -91,6 +92,11 @@ const Navbar = () => {
       document.documentElement.classList.add("dark");
     }
   };
+  const [menuVisible, setMenuVisible] = useState(false);
+  const handleMenuOpen = () => {
+    setMenuVisible(true);
+  };
+
   return (
     <header className="relative z-[200] top-0 left-0">
       <nav className=" dark:bg-dark-900 bg-light duration-300 flex items-center justify-center  md:h-20 h-16 ">
@@ -254,7 +260,10 @@ const Navbar = () => {
               }}
               icon={faSearch}
             ></FontAwesomeIcon>
-            <button className="flex items-center justify-center gap-2">
+            <button
+              onClick={handleMenuOpen}
+              className="flex items-center justify-center gap-2"
+            >
               <FontAwesomeIcon
                 className="text-lg dark:text-light text-dark-900"
                 icon={faBars}
@@ -356,6 +365,10 @@ const Navbar = () => {
               })}
         </div>
       )}
+      <Menu
+        setMenuVisible={setMenuVisible}
+        menuVisible={menuVisible}
+      />
     </header>
   );
 };
