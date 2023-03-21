@@ -63,7 +63,7 @@ const Navbar = () => {
     isError,
   } = useQuery(["searchResults", currentQuery], async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/search-movie?query=${currentQuery}`
+      `https://apimovies-backend.onrender.com/api/search-movie?query=${currentQuery}`
     );
     return response.data.results;
   });
