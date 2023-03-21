@@ -40,7 +40,7 @@ const LandingSwiper = (props) => {
         clickable: true,
       }}
       modules={[Autoplay, Pagination, Navigation, EffectFade]}
-      className="mySwiper shadow-lg shadow-stone-700/10 h-5/6  bg-neutral-900 relative"
+      className="mySwiper shadow-lg shadow-stone-800/40 h-5/6  bg-neutral-900 relative"
     >
       {props.trendingWeek &&
         props.trendingWeek

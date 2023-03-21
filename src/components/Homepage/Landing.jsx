@@ -18,7 +18,7 @@ const Landing = () => {
   });
   return (
     <div>
-      <div className="h-screen relative -mb-12 max-w-6xl mx-auto mt-0 p-2 md:px-5 rounded-md ">
+      <div className="h-screen relative -mb-12 max-w-6xl mx-auto mt-0 p-2 md:px-5 rounded-md  ">
         {isLoading ? (
           <Loading />
         ) : (

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes pulse {
+  33% {
+    transform: scale(1);
+  }
+  66% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .swiper-pagination-bullet-active {
   background-color: #10b981 !important;
   opacity: 1 !important;
@@ -18,9 +30,13 @@
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  color: #10b981;
+  z-index: 40;
+  color: #6fe5be;
   font-size: 2rem;
+  animation: pulse 4s ease;
+  animation-iteration-count: infinite;
 }
+
 .scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #57534e #fafafa;

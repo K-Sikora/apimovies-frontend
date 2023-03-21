@@ -43,7 +43,8 @@ const BestPicks = () => {
           <Swiper
             spaceBetween={0}
             slidesPerView={1}
-            pagination={{ clickable: true }}
+            navigation={true}
+            pagination
             breakpoints={{
               "@0.00": {
                 slidesPerView: 3,
@@ -61,8 +62,8 @@ const BestPicks = () => {
                 slidesPerView: 7,
               },
             }}
-            modules={[Pagination]}
-            className="mySwiper upcoming h-[26rem] md:h-[24rem] py-6 lg:h-[24rem]  cursor-grab relative  "
+            modules={[Pagination, Navigation]}
+            className="mySwiper upcoming h-[26rem] md:h-[24rem] py-6 lg:h-[24rem]  relative  "
           >
             {isLoading ? (
               <Loading />
@@ -125,7 +126,7 @@ const BestPicks = () => {
 
                     <div className="flex flex-col gap-2">
                       <a href={`/movie/${item.id}`}>
-                        <button className="py-1 w-full px-1 text-light  bg-dark-700 hover:bg-stone-600 duration-300 rounded-md text-sm font-medium">
+                        <button className="h-[30px] w-full px-1 text-light  bg-dark-700 hover:bg-stone-600 duration-300 rounded-md text-sm font-medium">
                           See details
                         </button>
                       </a>
@@ -134,7 +135,7 @@ const BestPicks = () => {
                           setMovieId(item.id);
                           setTrailerVisible(true);
                         }}
-                        className="py-1 group flex items-center justify-center gap-1.5 text-light px-1 bg-stone-800 rounded-md text-sm font-medium"
+                        className="h-[30px] group flex items-center justify-center gap-1.5 text-light px-1 bg-stone-800 rounded-md text-sm font-medium"
                       >
                         <FontAwesomeIcon
                           className="text-xs group-hover:text-emerald-500 duration-300 "
@@ -146,8 +147,6 @@ const BestPicks = () => {
                   </SwiperSlide>
                 ))
             )}
-            <div className="hidden dark:block h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-r z-10 left-0 top-0 absolute pointer-events-none "></div>
-            <div className="hidden dark:block h-full w-10 from-stone-900/60 to-black/0 bg-gradient-to-l z-10 right-0 top-0 absolute pointer-events-none "></div>
           </Swiper>
         </div>
         {trailerVisible && (
