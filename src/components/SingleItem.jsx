@@ -21,7 +21,6 @@ const SingleItem = () => {
     const response = await axios.get(
       `https://apimovies-backend.onrender.com/api/${itemType}/${id}`
     );
-    console.log(response.data);
     return response.data;
   };
 
@@ -37,7 +36,6 @@ const SingleItem = () => {
     const response = await axios.get(
       `https://apimovies-backend.onrender.com/api/${itemType}/keywords/${id}`
     );
-    console.log(response.data);
     return response.data;
   };
 

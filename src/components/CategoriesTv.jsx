@@ -36,7 +36,6 @@ const CategoriesTv = () => {
     const response = await axios.get(
       "https://apimovies-backend.onrender.com/api/tvgenres"
     );
-    console.log(response.data);
     response.data.genres.map((item) => {
       item.name === category ? setCurrentUrlCategory(item.id) : null;
     });
@@ -53,7 +52,6 @@ const CategoriesTv = () => {
         page
       )}`
     );
-    console.log(response.data);
     return response.data;
   };
 
@@ -61,7 +59,6 @@ const CategoriesTv = () => {
     const response = await axios.get(
       `https://apimovies-backend.onrender.com/api/tv/categories/${currentUrlCategory}/1`
     );
-    console.log(response.data);
     return response.data;
   };
   const { data: currentCategoryBackdrop } = useQuery({

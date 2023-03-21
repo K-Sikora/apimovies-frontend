@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
@@ -6,8 +6,8 @@ import {
   faMoon,
   faClose,
   faStar,
-  faSun,
 } from "@fortawesome/free-solid-svg-icons";
+import { BsFillSunFill } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -75,7 +75,8 @@ const Navbar = () => {
       localStorage.setItem("theme", "dark");
     }
     document.documentElement.classList.add(localStorage.getItem("theme"));
-  }, []);
+    setSwitchVisible(localStorage.getItem("theme"));
+  }, [switchVisible]);
 
   const handleDarkMode = () => {
     if (localStorage.getItem("theme") === "dark") {
@@ -90,7 +91,6 @@ const Navbar = () => {
       document.documentElement.classList.add("dark");
     }
   };
-
   return (
     <header className="relative z-[200] top-0 left-0">
       <nav className=" dark:bg-dark-900 bg-light duration-300 flex items-center justify-center  md:h-20 h-16 ">
@@ -187,7 +187,7 @@ const Navbar = () => {
                           animate={{ opacity: 1 }}
                           initial={{ opacity: 0 }}
                           transition={{ delay: index / 20 }}
-                          className="dark:text-white flex z-[200] cursor-pointer text-dark-900 py-2 px-2 dark:bg-stone-800 bg-light gap-3 w-full hover:bg-stone-600 transition-[background-color] duration-500"
+                          className="dark:text-white flex z-[200] cursor-pointer text-dark-900 py-2 px-2 dark:bg-stone-800 bg-light gap-3 w-full hover:bg-stone-200 dark:hover:bg-stone-600 transition-[background-color] duration-500"
                         >
                           <img
                             className=" w-[60px]"
@@ -263,20 +263,18 @@ const Navbar = () => {
                 Menu
               </h2>
             </button>
-            <FontAwesomeIcon
-              icon={faSun}
-              className={`w-5 h-5 dark:text-light text-dark-900 cursor-pointer ${
-                localStorage.getItem("theme") === "light" ? "hidden" : ""
-              }`}
-              onClick={handleDarkMode}
-            ></FontAwesomeIcon>
-            <FontAwesomeIcon
-              icon={faMoon}
-              className={`w-5 h-5 dark:text-light text-dark-900 cursor-pointer ${
-                localStorage.getItem("theme") === "dark" ? "hidden" : ""
-              }`}
-              onClick={handleDarkMode}
-            ></FontAwesomeIcon>
+            {switchVisible === "dark" ? (
+              <BsFillSunFill
+                className="w-5 h-5 dark:text-light text-dark-900 cursor-pointer"
+                onClick={handleDarkMode}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faMoon}
+                className="w-5 h-5 dark:text-light text-dark-900 cursor-pointer "
+                onClick={handleDarkMode}
+              ></FontAwesomeIcon>
+            )}
           </motion.div>
         </motion.div>
       </nav>

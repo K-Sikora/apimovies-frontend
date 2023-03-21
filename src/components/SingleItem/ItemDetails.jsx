@@ -10,9 +10,7 @@ const ItemDetails = (props) => {
   const [theme, setTheme] = useState();
   useEffect(() => {
     setTheme(localStorage.getItem("theme"));
-    console.log(theme);
   }, [theme]);
-  theme && console.log(theme);
   return (
     <>
       {props.itemData.vote_average > 0 && (

@@ -19,7 +19,6 @@ const LatestTrailers = () => {
     const response = await axios.get(
       "https://apimovies-backend.onrender.com/api/movie/upcoming"
     );
-    console.log(response.data.results);
 
     return response.data.results;
   };

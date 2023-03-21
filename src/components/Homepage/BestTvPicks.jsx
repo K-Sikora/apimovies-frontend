@@ -11,7 +11,7 @@ import { ScaleLoader } from "react-spinners";
 import Loading from "../Loading";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import TrailerTvPopup from "./TrailerTvPopup";
 
 const BestTvPicks = () => {
@@ -19,8 +19,6 @@ const BestTvPicks = () => {
     const response = await axios.get(
       "https://apimovies-backend.onrender.com/api/besttv"
     );
-    console.log(response.data.results);
-
     return response.data.results;
   };
 

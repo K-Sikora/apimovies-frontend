@@ -18,7 +18,6 @@ const BestPicks = () => {
     const response = await axios.get(
       "https://apimovies-backend.onrender.com/api/bestmovies"
     );
-    console.log(response.data.results);
 
     return response.data.results;
   };

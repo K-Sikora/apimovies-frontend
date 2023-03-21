@@ -8,7 +8,6 @@ const TrailerPopup = (props) => {
     const response = await axios.get(
       `https://apimovies-backend.onrender.com/api/movie/trailer/${props.movieId}`
     );
-    console.log(response.data);
     return response.data;
   };
 
