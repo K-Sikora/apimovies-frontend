@@ -26,9 +26,11 @@ const Menu = (props) => {
           >
             <div className="grid grid-cols-2 grid-rows-2  h-full w-full">
               <div className=" flex flex-col items-center gap-4 justify-center">
-                <div className="text-xl flex border-b-4 border-emerald-400 px-4 rounded-xl pb-3 gap-2 md:text-3xl justify-center items-center font-medium pointer-events-none ">
-                  <FaRandom className="text-3xl" />
-                  Random
+                <div className="text-xl h-14 bg-gradient-to-r rounded-md from-emerald-200 via-emerald-400 to-emerald-600 pb-1  md:text-3xl  font-medium pointer-events-none ">
+                  <div className="h-full w-full  dark:bg-dark-900 px-2 bg-light flex justify-center items-center gap-2">
+                    <FaRandom className="text-3xl" />
+                    Random
+                  </div>
                 </div>
                 <p className="flex items-center gap-1 text-lg justify-center pointer-events-none">
                   <BiMovie className="text-2xl text-emerald-500" />
@@ -39,10 +41,12 @@ const Menu = (props) => {
                   Random TV show
                 </p>
               </div>
-              <div className=" flex flex-col items-center gap-4 justify-center">
-                <div className="text-xl flex gap-2 md:text-3xl justify-center items-center font-medium pointer-events-none border-b-4 border-emerald-400 px-4 rounded-xl pb-3 ">
-                  <MdOutlineScreenSearchDesktop className="text-3xl" />
-                  Search
+              <div className=" flex flex-col  items-center gap-4 justify-center">
+                <div className="text-xl h-14 rounded-md bg-gradient-to-r from-emerald-200 via-emerald-400 pb-1 to-emerald-600   md:text-3xl  font-medium pointer-events-none   ">
+                  <div className="h-full w-full  dark:bg-dark-900 px-2 bg-light flex  justify-center items-center gap-2">
+                    <MdOutlineScreenSearchDesktop className="text-3xl" />
+                    Search
+                  </div>
                 </div>
                 <p className="flex items-center gap-1 text-lg justify-center pointer-events-none">
                   <BiSearchAlt className="text-2xl text-emerald-500" />
@@ -54,18 +58,22 @@ const Menu = (props) => {
                 </p>
               </div>
               <div className=" flex flex-col items-center  gap-4 justify-center">
-                <div className="text-xl flex gap-2 md:text-3xl justify-center items-center font-medium pointer-events-none border-b-4 border-emerald-400 px-4 rounded-xl pb-3 ">
-                  <BsCodeSlash className="text-3xl" />
-                  Code
+                <div className="text-xl h-14  md:text-3xl justify-center items-center font-medium pointer-events-none bg-gradient-to-r rounded-md from-emerald-200 via-emerald-400 to-emerald-600 pb-1 ">
+                  <div className="h-full w-full  dark:bg-dark-900 px-2 bg-light flex justify-center items-center gap-2">
+                    <BsCodeSlash className="text-3xl" />
+                    Code
+                  </div>
                 </div>
                 <p className="flex items-center gap-1 text-lg justify-center">
                   <AiFillGithub className="w-40 h-10 md:w-52  " />
                 </p>
               </div>
               <div className=" flex flex-col gap-4 items-center  justify-center">
-                <div className="text-xl justify-center md:text-3xl border-b-4 border-emerald-400 px-4 rounded-xl pb-3 items-center flex gap-2 font-medium ">
-                  <BsDatabaseCheck className="text-3xl pointer-events-none" />
-                  API
+                <div className="text-xl h-14  md:text-3xl justify-center items-center pointer-events-none bg-gradient-to-r rounded-md from-emerald-200 via-emerald-400 to-emerald-600 pb-1 font-medium ">
+                  <div className="h-full w-full  dark:bg-dark-900 px-2 bg-light flex justify-center items-center gap-2">
+                    <BsDatabaseCheck className="text-3xl pointer-events-none" />
+                    API
+                  </div>
                 </div>
 
                 <a

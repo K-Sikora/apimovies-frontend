@@ -53,7 +53,7 @@ const Keywords = (props) => {
           ))}
       </div>
       {props.itemData.overview && (
-        <div className="px-5 font-[Roboto] pb-5">
+        <div className="px-5  pb-5">
           <p>{props.itemData.overview}</p>
         </div>
       )}

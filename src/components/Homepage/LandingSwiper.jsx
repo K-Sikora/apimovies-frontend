@@ -69,7 +69,7 @@ const LandingSwiper = (props) => {
                       </div>
                     </div>
                     <div className="flex w-90% justify-evenly flex-col ">
-                      <h3 className="text-white text-xl font-medium font-[Roboto]">
+                      <h3 className="text-white text-xl font-medium ">
                         {item.title || item.name}
                       </h3>
                       <FontAwesomeIcon
@@ -81,7 +81,7 @@ const LandingSwiper = (props) => {
                           className=" text-emerald-500 text-lg"
                           icon={faStar}
                         ></FontAwesomeIcon>
-                        <h4 className="text-white text-lg font-medium font-[Roboto]">
+                        <h4 className="text-white text-lg font-medium ">
                           {item.vote_average.toFixed(1)}
                         </h4>
                       </div>
