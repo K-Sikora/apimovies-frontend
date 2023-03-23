@@ -95,6 +95,7 @@ const Navbar = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const handleMenuOpen = () => {
     setMenuVisible(true);
+    document.body.style.overflow = "hidden";
   };
 
   return (
@@ -159,10 +160,11 @@ const Navbar = () => {
           >
             <div className="relative">
               <input
+                id="focusInput"
                 onBlur={focusLeaveHandler}
                 onFocusCapture={updateSearchHandler}
                 onChange={updateSearchHandler}
-                className="w-[26rem] text-dark-700 shadow-md shadow-dark-700/20  dark:bg-light    outline-none focus:outline-[2.5px] focus:outline-emerald-500 focus:-outline-offset-1 px-3 rounded-md  text-base py-[.55rem] placeholder:text-base  "
+                className="w-[26rem] text-dark-700 shadow-md shadow-dark-700/20  dark:bg-light outline-none focus:outline-[2.5px] focus:outline-emerald-500 focus:-outline-offset-1 px-3 rounded-md  text-base py-[.55rem] placeholder:text-base  "
                 placeholder="Search for a movie/show..."
               />
               <FontAwesomeIcon
@@ -368,6 +370,7 @@ const Navbar = () => {
       <Menu
         setMenuVisible={setMenuVisible}
         menuVisible={menuVisible}
+        setSearchVisible={setSearchVisible}
       />
     </header>
   );

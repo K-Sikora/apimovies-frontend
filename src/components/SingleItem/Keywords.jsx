@@ -42,11 +42,11 @@ const Keywords = (props) => {
       <div className="flex gap-2 flex-wrap px-5">
         {props.itemData.genres &&
           props.itemData.genres.map((item, index) => (
-            <a href={`/${props.itemType}/category/${item.name}/1`}>
-              <button
-                key={index}
-                className="border-[2px] dark:text-light text-dark-900 font-normal border-stone-600 dark:hover:border-stone-500 hover:border-stone-400 duration-300 px-4 text-sm py-2 rounded-full"
-              >
+            <a
+              key={index}
+              href={`/${props.itemType}/category/${item.name}/1`}
+            >
+              <button className="border-[2px] dark:text-light text-dark-900 font-normal border-stone-600 dark:hover:border-stone-500 hover:border-stone-400 duration-300 px-4 text-sm py-2 rounded-full">
                 {item.name}
               </button>
             </a>

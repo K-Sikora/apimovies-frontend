@@ -30,7 +30,7 @@ const ItemInfo = (props) => {
             {props.itemData.runtime}m
           </p>
         )}
-        {props.itemData.number_of_seasons && (
+        {props.itemData.seasons && (
           <h5
             onMouseOverCapture={() => {
               props.setEpisodesVisible(true);
@@ -40,9 +40,9 @@ const ItemInfo = (props) => {
             }}
             className="flex gap-1 text-sm items-center relative cursor-default dark:text-stone-300 text-dark-700"
           >
-            {props.itemData.number_of_seasons === 1
-              ? props.itemData.number_of_seasons + " Season"
-              : props.itemData.number_of_seasons + " Seasons"}
+            {props.itemData.seasons.length === 1
+              ? props.itemData.seasons.length + " Season"
+              : props.itemData.seasons.length + " Seasons"}
             <FontAwesomeIcon
               className="dark:text-light text-dark-700"
               icon={faListNumeric}
