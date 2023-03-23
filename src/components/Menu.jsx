@@ -60,6 +60,10 @@ const Menu = (props) => {
     toFocus.focus();
     document.body.style.overflow = "visible";
   };
+  const handleAdvancedSearch = () => {
+    navigate("/search");
+    props.setMenuVisible(false);
+  };
   return (
     <div>
       <AnimatePresence>
@@ -112,7 +116,10 @@ const Menu = (props) => {
                   <BiSearch className="text-xl md:text-2xl text-emerald-500 group-hover:text-emerald-700 dark:group-hover:text-emerald-200 duration-500" />
                   Regular search
                 </button>
-                <button className="flex relative group items-center gap-1 text-sm md:text-lg justify-center cursor-pointer">
+                <button
+                  onClick={handleAdvancedSearch}
+                  className="flex relative group items-center gap-1 text-sm md:text-lg justify-center cursor-pointer"
+                >
                   <div className="w-0 group-hover:w-full h-[2px] absolute -bottom-2 left-0 bg-gradient-to-r rounded-sm from-emerald-400 via-emerald-500 to-emerald-600 dark:from-emerald-200 dark:via-emerald-400 dark:to-emerald-600 duration-500"></div>
                   <BiSearchAlt className="text-xl md:text-2xl text-emerald-500 group-hover:text-emerald-700 dark:group-hover:text-emerald-200 duration-500" />
                   Advanced search

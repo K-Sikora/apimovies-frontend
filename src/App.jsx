@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import SingleItem from "./components/SingleItem";
 import Categories from "./components/Categories";
 import CategoriesTv from "./components/CategoriesTv";
+import AdvancedSearch from "./components/AdvancedSearch";
 
 const queryClient = new QueryClient();
 function App() {
@@ -27,6 +28,10 @@ function App() {
           <Route
             path="/tv/category/:category/:page"
             element={<CategoriesTv />}
+          />
+          <Route
+            path="/search"
+            element={<AdvancedSearch />}
           />
         </Routes>
       </div>
