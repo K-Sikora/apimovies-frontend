@@ -20,7 +20,7 @@ const NotFound = () => {
   return (
     <>
       <Navbar />
-      <div className="dark:bg-stone-900 bg-light flex-col min-h-screen gap-8 flex items-center relative -mt-16 md:-mt-20 justify-center">
+      <div className="dark:bg-stone-900 bg-light dark:text-light text-dark-900 flex-col min-h-screen gap-8 flex items-center relative -mt-16 md:-mt-20 justify-center">
         <div className="flex gap-4">
           <motion.div
             animate={{ opacity }}

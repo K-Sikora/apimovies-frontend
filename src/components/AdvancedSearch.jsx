@@ -49,13 +49,37 @@ const AdvancedSearch = () => {
       setCurrentSelect("Movie");
     }
   });
+
+  const getMovieResults = async () => {
+    const response = await axios.get(
+      `http://localhost:8080/api/movie-advanced/${movieYear}/${sortMovie}/${movieGenre}`
+    );
+    console.log(response.data);
+    return response.data;
+  };
+
+  const { data: movieResults, refetch } = useQuery({
+    queryKey: ["movieResults"],
+    queryFn: getMovieResults,
+    refetchOnWindowFocus: false,
+    enabled: false,
+  });
+  const [movieYear, setMovieYear] = useState();
+  const [sortMovie, setSortMovie] = useState();
+  const [movieGenre, setMovieGenre] = useState();
+  const submitSearch = () => {
+    setMovieYear(2002);
+    setSortMovie("popularity.desc");
+    setMovieGenre(14);
+    refetch();
+  };
   if (isLoading) {
     return <NotFound />;
   }
   return (
-    <div>
+    <div className="min-h-screen">
       <Navbar />
-      <div className="px-5 py-2 max-w-6xl mx-auto dark:text-light text-dark-900  min-h-screen border-t-emerald-500">
+      <div className="px-5 py-2  max-w-6xl mx-auto dark:text-light text-dark-900   border-t-emerald-500">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -64,15 +88,15 @@ const AdvancedSearch = () => {
         >
           Advanced search
         </motion.h2>
-        <div className="flex">
+        <div className="flex pb-6">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
-            className=" flex-1 p-2"
+            className=" flex-1 p-2  "
           >
-            <h3 className="text-lg">Type</h3>
-            <div>
+            <h3 className="text-lg mb-1">Type</h3>
+            <div className="mb-2">
               <select
                 onChange={handleTypeSelect}
                 className="px-2 text-base py-1 rounded-md dark:bg-dark-700 border-2 border-emerald-500"
@@ -81,8 +105,8 @@ const AdvancedSearch = () => {
                 <option>TV Show</option>
               </select>
             </div>
-            <h3 className="text-lg">Sort by</h3>
-            <div>
+            <h3 className="text-lg mb-1">Sort by</h3>
+            <div className="mb-2">
               <select className="px-2 text-base py-1 rounded-md dark:bg-dark-700 border-2 border-emerald-500">
                 <option>Popularity</option>
                 <option>Newest</option>
@@ -91,20 +115,28 @@ const AdvancedSearch = () => {
                 <option>Vote count</option>
               </select>
             </div>
-            <h3 className="text-lg">Year</h3>
+            <h3 className="text-lg mb-1">Year</h3>
 
-            <div>
+            <div className="mb-2">
               <input
-                className="w-40 bg-dark-900/5 px-2 py-1 focus:shadow-lg focus:shadow-dark-900/5 -outline-offset-2 outline-none outline-emerald-500 focus:outline-2 focus:outline-emerald-600  duration-300"
+                className="w-40 bg-dark-900/5 px-2 py-1 focus:shadow-lg focus:shadow-dark-900/5 -outline-offset-2 outline-none outline-emerald-500 focus:outline-2 focus:outline-emerald-600 rounded-md duration-300"
                 type="text"
                 name=""
                 id=""
               />
             </div>
           </motion.div>
-          <div className=" flex-1 p-2">
-            <div className="mt-4">
-              <h3 className="text-lg">Categories</h3>
+          <div className=" flex-1 p-2 ">
+            <div className="">
+              <motion.h3
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.2 }}
+                className="text-lg mb-1"
+              >
+                Categories
+              </motion.h3>
               <div className="w-full flex flex-wrap gap-2">
                 {movieGenres?.genres.map(
                   (item, index) =>
@@ -178,11 +210,15 @@ const AdvancedSearch = () => {
             </div>
           </div>
         </div>
-        <div className="mt-2">
-          <button className=" bg-gradient-to-l from-emerald-300 via-emerald-400 to-emerald-500 text-light  py-2 rounded-lg w-full md:w-1/4 float-right">
+        <div>
+          <button
+            onClick={submitSearch}
+            className=" bg-gradient-to-r hover:shadow-lg hover:shadow-dark-900/5 duration-300 from-emerald-400  to-emerald-500 text-light  py-2 rounded-lg w-full md:w-1/4 float-right"
+          >
             Search
           </button>
         </div>
+        <section>results</section>
       </div>
     </div>
   );
