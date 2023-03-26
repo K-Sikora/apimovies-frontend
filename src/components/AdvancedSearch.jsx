@@ -55,7 +55,7 @@ const AdvancedSearch = () => {
 
   const getMovieResults = async () => {
     const response = await axios.get(
-      `http://localhost:8080/api/movie-advanced/${movieYear}/${sortMovie}/${movieGenre}`
+      `https://apimovies-backend.onrender.com/api/movie-advanced/${movieYear}/${sortMovie}/${movieGenre}`
     );
     console.log(response.data);
     return response.data;
