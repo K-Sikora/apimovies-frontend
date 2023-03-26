@@ -63,6 +63,7 @@ const Menu = (props) => {
   const handleAdvancedSearch = () => {
     navigate("/search");
     props.setMenuVisible(false);
+    document.body.style.overflow = "visible";
   };
   return (
     <div>
