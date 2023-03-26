@@ -70,14 +70,16 @@ const AdvancedSearch = () => {
     queryFn: getMovieResults,
     refetchOnWindowFocus: false,
   });
-  const chosenGenres = [];
+  const [chosenGenres, setChosenGenres] = useState([]);
   const [movieYear, setMovieYear] = useState();
   const [sortMovie, setSortMovie] = useState("popularity.desc");
   const [movieGenre, setMovieGenre] = useState();
   const submitSearch = () => {
+    console.log(chosenGenres);
     if (currentSelect === "Movie") {
       setMovieGenre(chosenGenres.toString());
       refetch();
+      console.log(chosenGenres);
     } else {
       ("");
     }
@@ -176,8 +178,18 @@ const AdvancedSearch = () => {
                           >
                             <input
                               onChange={(e) => {
-                                chosenGenres.push(e.target.dataset.id);
-                                console.log(chosenGenres);
+                                if (e.target.checked === true) {
+                                  chosenGenres.push(e.target.dataset.id);
+                                  console.log(chosenGenres);
+                                } else {
+                                  chosenGenres.indexOf(e.target.dataset.id) !==
+                                    -1 &&
+                                    chosenGenres.splice(
+                                      chosenGenres.indexOf(e.target.dataset.id),
+                                      1
+                                    );
+                                  console.log(chosenGenres);
+                                }
                               }}
                               type="checkbox"
                               data-id={item.id}
