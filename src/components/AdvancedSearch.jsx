@@ -52,10 +52,12 @@ const AdvancedSearch = () => {
       setCurrentSelect("Movie");
     }
   });
-
+  const [chosenGenres, setChosenGenres] = useState([14]);
+  const [movieYear, setMovieYear] = useState(2015);
+  const [sortMovie, setSortMovie] = useState("popularity.desc");
   const getMovieResults = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/movie-advanced/${movieYear}/${sortMovie}/${movieGenre}`
+      `https://apimovies-backend.onrender.com/api/movie-advanced/${movieYear}/${sortMovie}/${chosenGenres.toString()}`
     );
     console.log(response.data);
     return response.data;
@@ -64,29 +66,18 @@ const AdvancedSearch = () => {
   const {
     data: movieResults,
     refetch,
-    isLoading2,
+    isRefetching,
+    isLoading: isLoading2,
   } = useQuery({
     queryKey: ["movieResults"],
     queryFn: getMovieResults,
     refetchOnWindowFocus: false,
   });
-  const [chosenGenres, setChosenGenres] = useState([]);
-  const [movieYear, setMovieYear] = useState();
-  const [sortMovie, setSortMovie] = useState("popularity.desc");
-  const [movieGenre, setMovieGenre] = useState();
-  const submitSearch = () => {
-    console.log(chosenGenres);
-    if (currentSelect === "Movie") {
-      setMovieGenre(chosenGenres.toString());
-      refetch();
-      console.log(chosenGenres);
-    } else {
-      ("");
-    }
-  };
+
   if (isLoading) {
     return <NotFound />;
   }
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -123,6 +114,7 @@ const AdvancedSearch = () => {
                   setSortMovie(
                     e.target.options[e.target.selectedIndex].dataset.option
                   );
+                  refetch();
                 }}
                 className="px-2 text-base py-1 rounded-md dark:bg-dark-700 border-2 border-emerald-500"
               >
@@ -190,6 +182,7 @@ const AdvancedSearch = () => {
                                     );
                                   console.log(chosenGenres);
                                 }
+                                refetch();
                               }}
                               type="checkbox"
                               data-id={item.id}
@@ -246,22 +239,22 @@ const AdvancedSearch = () => {
             </div>
           </div>
         </div>
-        <div>
-          <button
-            onClick={submitSearch}
-            className=" bg-gradient-to-r hover:shadow-lg hover:shadow-dark-900/5 duration-300 from-emerald-400  to-emerald-500 text-light  py-2 rounded-lg w-full md:w-1/4 float-right"
-          >
-            Search
-          </button>
-        </div>
+        <div></div>
       </div>
-      <section className=" max-w-6xl mx-auto">
-        {isLoading2 ? (
-          <Loading />
+      <section className=" max-w-6xl mx-auto min-h-screen">
+        {isRefetching || isLoading2 ? (
+          <div className=" translate-y-20">
+            <Loading />
+          </div>
         ) : (
           movieResults &&
           movieResults.results.map((item) => (
-            <div className="flex h-40 relative duration-300 gap-4 bg-light dark:bg-stone-900  shadow-xl dark:shadow-stone-900/60 shadow-stone-900/30 mx-6 mt-6 pr-2 rounded-md">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5 }}
+              className="flex h-40 relative transition-colors duration-300 gap-4 bg-light dark:bg-stone-900  shadow-xl dark:shadow-stone-900/60 shadow-stone-900/30 mx-6 mt-6 pr-2 rounded-md"
+            >
               <div className=" h-32 flex-shrink-0  ">
                 <Link to={`/movie/${item.id}`}>
                   <img
@@ -310,7 +303,7 @@ const AdvancedSearch = () => {
                   text={`${item.vote_average.toFixed(1) * 10 + "%"}`}
                 ></CircularProgressbar>
               </div>
-            </div>
+            </motion.div>
           ))
         )}
       </section>
