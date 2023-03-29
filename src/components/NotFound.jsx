@@ -45,9 +45,9 @@ const NotFound = () => {
             transition={{ type: "spring" }}
             className="absolute bottom-1/4"
           >
-            <h3 className="text-white text-lg px-8 md:px-20 font-medium text-center">
+            <h3 className="dark:text-white text-dark-900 text-lg px-8 md:px-20 font-medium text-center">
               Loading takes more than expected, make sure your internet
-              connection is working properly and valid ID is set.
+              connection is working properly.
             </h3>
           </motion.div>
         )}

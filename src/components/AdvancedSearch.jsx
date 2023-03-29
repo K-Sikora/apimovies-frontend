@@ -8,6 +8,12 @@ import axios from "axios";
 import NotFound from "./NotFound";
 import { motion, AnimatePresence } from "framer-motion";
 const AdvancedSearch = () => {
+  const [sortMovie, setSortMovie] = useState("popularity.desc");
+
+  useEffect(() => {
+    console.log(sortMovie);
+    refetch();
+  }, [sortMovie]);
   const [movieCategoriesVisible, setMovieCategoriesVisible] = useState(true);
   const [TvCategoriesVisible, setTvCategoriesVisible] = useState(false);
   const getGenres = async () => {
@@ -54,7 +60,6 @@ const AdvancedSearch = () => {
   }, []);
   const [chosenGenres, setChosenGenres] = useState([]);
   const [movieYear, setMovieYear] = useState(2015);
-  const [sortMovie, setSortMovie] = useState("popularity.desc");
   const getMovieResults = async () => {
     const response = await axios.get(
       `https://apimovies-backend.onrender.com/api/movie-advanced/${movieYear}/${sortMovie}/${
@@ -62,7 +67,6 @@ const AdvancedSearch = () => {
       }`
     );
     console.log(response.data);
-    console.log(sortMovie);
     return response.data;
   };
 
@@ -115,9 +119,6 @@ const AdvancedSearch = () => {
               <select
                 onChange={(e) => {
                   setSortMovie(e.target.options[e.target.selectedIndex].value);
-                  console.log(sortMovie);
-                  refetch();
-                  console.log(sortMovie);
                 }}
                 className="px-2 text-base py-1 rounded-md dark:bg-dark-700 border-2 border-emerald-500"
               >
