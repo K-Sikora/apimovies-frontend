@@ -51,15 +51,18 @@ const AdvancedSearch = () => {
     if (!currentSelect) {
       setCurrentSelect("Movie");
     }
-  });
-  const [chosenGenres, setChosenGenres] = useState([14]);
+  }, []);
+  const [chosenGenres, setChosenGenres] = useState([]);
   const [movieYear, setMovieYear] = useState(2015);
   const [sortMovie, setSortMovie] = useState("popularity.desc");
   const getMovieResults = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/movie-advanced/${movieYear}/${sortMovie}/${chosenGenres.toString()}`
+      `https://apimovies-backend.onrender.com/api/movie-advanced/${movieYear}/${sortMovie}/${
+        chosenGenres.length === 0 ? 14 : chosenGenres.toString()
+      }`
     );
     console.log(response.data);
+    console.log(sortMovie);
     return response.data;
   };
 
@@ -111,18 +114,18 @@ const AdvancedSearch = () => {
             <div className="mb-2">
               <select
                 onChange={(e) => {
-                  setSortMovie(
-                    e.target.options[e.target.selectedIndex].dataset.option
-                  );
+                  setSortMovie(e.target.options[e.target.selectedIndex].value);
+                  console.log(sortMovie);
                   refetch();
+                  console.log(sortMovie);
                 }}
                 className="px-2 text-base py-1 rounded-md dark:bg-dark-700 border-2 border-emerald-500"
               >
-                <option data-option="popularity.desc">Popularity</option>
-                <option data-option="release_date.desc">Newest</option>
-                <option data-option="release_date.asc">Oldest</option>
-                <option data-option="vote_average.desc">Average vote</option>
-                <option data-option="vote_count.desc">Vote count</option>
+                <option value="popularity.desc">Popularity</option>
+                <option value="release_date.desc">Newest</option>
+                <option value="release_date.asc">Oldest</option>
+                <option value="vote_average.desc">Average vote</option>
+                <option value="vote_count.desc">Vote count</option>
               </select>
             </div>
             <h3 className="text-lg mb-1">Year</h3>
