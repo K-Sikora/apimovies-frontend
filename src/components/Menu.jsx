@@ -78,7 +78,7 @@ const Menu = (props) => {
           >
             <div className="grid grid-cols-2  grid-rows-2  px-4 -mt-10 h-full w-full">
               <div className=" flex flex-col  items-center gap-5 justify-end pb-10">
-                <div className="text-lg h-14 bg-gradient-to-r rounded-md from-emerald-200 via-emerald-400 to-emerald-600 pb-1  md:text-3xl  font-medium  ">
+                <div className="text-lg h-14 bg-gradient-to-r rounded-md from-emerald-200 via-emerald-400 to-emerald-600 pb-1  md:text-3xl  font-medium pointer-events-none  ">
                   <div className="h-full w-full  dark:bg-dark-900 px-2 bg-light flex justify-center items-center gap-2">
                     <GiPerspectiveDiceSixFacesRandom className="text-3xl" />
                     Random

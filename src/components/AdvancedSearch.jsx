@@ -57,8 +57,6 @@ const AdvancedSearch = () => {
   const [movieYear, setMovieYear] = useState();
   const [sortMovie, setSortMovie] = useState("popularity.desc");
   const [chosenGenresTv, setChosenGenresTv] = useState([]);
-  const [tvYear, setTvYear] = useState();
-  const [sortTv, setSortTv] = useState("popularity.desc");
   useEffect(() => {
     refetch();
   }, [sortMovie]);
@@ -106,7 +104,6 @@ const AdvancedSearch = () => {
     data: tvResults,
     refetch: refetch2,
     isRefetching: isRefetching2,
-    isLoading: isLoading3,
   } = useQuery({
     queryKey: ["tvResults", sortMovie, movieYear],
     queryFn: getTvResults,
@@ -118,14 +115,14 @@ const AdvancedSearch = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pb-8">
       <Navbar />
-      <div className="px-5 py-2 flex flex-col max-w-6xl mx-auto dark:text-light text-dark-900   border-t-emerald-500">
+      <div className="px-5 py-8 flex flex-col max-w-6xl mx-auto dark:text-light text-dark-900   border-t-emerald-500">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
-          className="text-center mb-4 text-xl md:text-2xl font-semibold"
+          className="text-center mb-10 text-xl md:text-2xl font-semibold"
         >
           Advanced search
         </motion.h2>
@@ -134,13 +131,13 @@ const AdvancedSearch = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
-            className=" flex-1 p-2  "
+            className=" flex-1  "
           >
-            <h3 className="text-lg mb-1">Type</h3>
+            <h3 className="text-xl mb-3">Type</h3>
             <div className="mb-2">
               <select
                 onChange={handleTypeSelect}
-                className="px-2 text-base py-1 rounded-md dark:bg-dark-700 border-2 border-emerald-500"
+                className="px-2 w-36 text-base py-1 rounded-md bg-transparent dark:bg-dark-900  border-2 border-emerald-500"
               >
                 <option>Movie</option>
                 <option>TV Show</option>
@@ -152,7 +149,7 @@ const AdvancedSearch = () => {
                 onChange={(e) => {
                   setSortMovie(e.target.options[e.target.selectedIndex].value);
                 }}
-                className="px-2 text-base py-1 rounded-md dark:bg-dark-700 border-2 border-emerald-500"
+                className="px-2 w-36  bg-transparent text-base dark:bg-dark-900  py-1 rounded-md border-2 border-emerald-500"
               >
                 <option value="popularity.desc">Popularity</option>
                 <option value="release_date.desc">Newest</option>
@@ -177,21 +174,19 @@ const AdvancedSearch = () => {
                     setMovieYear("b");
                   }
                 }}
-                className="w-40 bg-dark-900/5 px-2 py-1 focus:shadow-lg focus:shadow-dark-900/5 -outline-offset-2 outline-none outline-emerald-500 focus:outline-2 focus:outline-emerald-600 rounded-md duration-300"
+                className=" w-36  px-2 py-1 focus:shadow-lg focus:shadow-dark-900/5 -outline-offset-2 outline-none outline-emerald-500 focus:outline-2 focus:outline-emerald-600 bg-transparent  rounded-md duration-300"
                 type="text"
-                name=""
-                id=""
               />
             </div>
           </motion.div>
-          <div className=" flex-1 p-2 ">
+          <div className=" flex-1 ">
             <div className="">
               <motion.h3
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.2 }}
-                className="text-lg mb-1"
+                className="text-xl mb-3"
               >
                 Categories
               </motion.h3>
@@ -205,7 +200,7 @@ const AdvancedSearch = () => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 1.2 }}
-                          className="flex   px-2 py-1"
+                          className="flex px-[2px] py-1"
                         >
                           <motion.div
                             initial={{ opacity: 0 }}
@@ -231,7 +226,7 @@ const AdvancedSearch = () => {
                               data-id={item.id}
                               name={item.name}
                               id={item.name}
-                              className="w-4 h-4"
+                              className="w-4 h-4 border-2 "
                             />
                             <label
                               className="text-xs pl-1 md:text-sm"
@@ -253,7 +248,7 @@ const AdvancedSearch = () => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 1.2 }}
-                          className="flex  px-2 py-1"
+                          className="flex px-[2px] py-1"
                         >
                           <motion.div
                             initial={{ opacity: 0 }}
