@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { useQuery } from "react-query";
 import axios from "axios";
-import LazyLoad from "react-lazyload";
 import { ScaleLoader } from "react-spinners";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -33,7 +32,7 @@ const BestPicks = () => {
   const [trailerVisible, setTrailerVisible] = useState(false);
 
   return (
-    <LazyLoad>
+    <>
       <div className="max-w-6xl mx-auto px-5 dark:text-light text-dark-900 mb-14">
         <h2 className=" text-2xl">
           <span className=" bg-emerald-500 mr-2 px-[2px] rounded-md"></span>
@@ -157,7 +156,7 @@ const BestPicks = () => {
           />
         )}
       </div>
-    </LazyLoad>
+    </>
   );
 };
 

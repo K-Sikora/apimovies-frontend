@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { ScaleLoader } from "react-spinners";
-import LazyLoad from "react-lazyload";
 
 import { Link } from "react-router-dom";
 
@@ -10,7 +9,7 @@ import "react-circular-progressbar/dist/styles.css";
 const Similar = (props) => {
   const [loading, setLoading] = useState(true);
   return (
-    <LazyLoad>
+    <>
       {props.similar && (
         <div className="px-5 flex flex-col gap-6 ">
           <h3 className="text-2xl dark:text-light text-dark-900">
@@ -101,7 +100,7 @@ const Similar = (props) => {
           </div>
         </div>
       )}
-    </LazyLoad>
+    </>
   );
 };
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ScaleLoader } from "react-spinners";
-import { useQuery } from "react-query";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import TrailerPopup from "../Homepage/TrailerPopup";
