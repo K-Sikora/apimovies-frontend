@@ -26,7 +26,7 @@ const ItemCoverImage = (props) => {
         />
         <div className="absolute left-2 bottom-2 h-40  z-[60] ">
           <img
-            className="w-full h-full object-cover"
+            className="w-auto h-40 object-cover"
             src={
               props.itemData.poster_path !== null
                 ? `https://image.tmdb.org/t/p/w300` + props.itemData.poster_path
