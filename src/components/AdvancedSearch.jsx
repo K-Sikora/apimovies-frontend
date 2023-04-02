@@ -73,7 +73,6 @@ const AdvancedSearch = () => {
         chosenGenres.length === 0 ? "b" : chosenGenres.toString()
       }`
     );
-    console.log(response.data);
 
     return response.data;
   };
@@ -242,7 +241,7 @@ const AdvancedSearch = () => {
                 {tvGenres?.genres.map(
                   (item, index) =>
                     TvCategoriesVisible && (
-                      <AnimatePresence>
+                      <AnimatePresence key={index}>
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -303,8 +302,9 @@ const AdvancedSearch = () => {
             <Loading />
           </div>
         ) : movieCategoriesVisible ? (
-          movieResults?.results.map((item) => (
+          movieResults?.results.map((item, index) => (
             <motion.div
+              key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
@@ -365,8 +365,9 @@ const AdvancedSearch = () => {
             </motion.div>
           ))
         ) : (
-          tvResults?.results.map((item) => (
+          tvResults?.results.map((item, index) => (
             <motion.div
+              key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
