@@ -35,8 +35,10 @@ const Similar = (props) => {
                               }}
                               className="rounded-md h-64 w-40 object-cover "
                               src={
-                                `https://image.tmdb.org/t/p/w300` +
-                                similarItem.poster_path
+                                similarItem.poster_path !== null
+                                  ? `https://image.tmdb.org/t/p/w300` +
+                                    similarItem.poster_path
+                                  : "/images/no-cover.png"
                               }
                               alt="background photo"
                             />

@@ -79,7 +79,11 @@ const LatestTrailers = () => {
                       setLoading(false);
                     }}
                     className=" h-60 shadow-lg shadow-dark-900/30 md:h-52 object-cover rounded-sm cursor-grab"
-                    src={`https://image.tmdb.org/t/p/w500` + item.poster_path}
+                    src={
+                      item.poster_path !== null
+                        ? `https://image.tmdb.org/t/p/w500` + item.poster_path
+                        : "/images/no-cover.png"
+                    }
                   />
                   <div className="flex mt-2 absolute bottom-0 left-0 px-2 pointer-events-none dark:bg-stone-900/50 w-full text-sm font-medium  h-1/5 items-center">
                     {new Date(item.release_date) < date && (

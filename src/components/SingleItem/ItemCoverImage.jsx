@@ -17,14 +17,21 @@ const ItemCoverImage = (props) => {
           }}
           className="w-full h-full object-cover"
           src={
-            `https://image.tmdb.org/t/p/w1280` + props.itemData.backdrop_path
+            props.itemData.backdrop_path !== null
+              ? `https://image.tmdb.org/t/p/w1280` +
+                props.itemData.backdrop_path
+              : "/images/background-not-found.png"
           }
           alt="cover image"
         />
         <div className="absolute left-2 bottom-2 h-40  z-[60] ">
           <img
             className="w-full h-full object-cover"
-            src={`https://image.tmdb.org/t/p/w300` + props.itemData.poster_path}
+            src={
+              props.itemData.poster_path !== null
+                ? `https://image.tmdb.org/t/p/w300` + props.itemData.poster_path
+                : "/images/no-cover.png"
+            }
           />
         </div>
         <div

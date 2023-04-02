@@ -51,7 +51,11 @@ const LandingSwiper = (props) => {
                 <img
                   onLoad={() => setLoading(false)}
                   className="h-full w-full  object-cover top-0 left-0"
-                  src={`https://image.tmdb.org/t/p/w1280` + item.backdrop_path}
+                  src={
+                    item.backdrop_path !== null
+                      ? `https://image.tmdb.org/t/p/w1280` + item.backdrop_path
+                      : "/images/background-not-found.png"
+                  }
                   alt="cover image"
                 />
                 <a href={`/${item.media_type}/${item.id}`}>
@@ -62,7 +66,10 @@ const LandingSwiper = (props) => {
                         <img
                           className="w-full h-full"
                           src={
-                            `https://image.tmdb.org/t/p/w200` + item.poster_path
+                            item.poster_path !== null
+                              ? `https://image.tmdb.org/t/p/w200` +
+                                item.poster_path
+                              : "/images/no-cover.png"
                           }
                           alt="poster image"
                         />

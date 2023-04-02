@@ -81,7 +81,10 @@ const BestPicks = () => {
                         }}
                         className=" h-60 md:h-52 shadow-lg shadow-dark-900/30 object-cover rounded-sm cursor-grab"
                         src={
-                          `https://image.tmdb.org/t/p/w500` + item.poster_path
+                          item.poster_path !== null
+                            ? `https://image.tmdb.org/t/p/w500` +
+                              item.poster_path
+                            : "/images/no-cover.png"
                         }
                       />
                       <div className="flex mt-2 absolute bottom-0 left-0 px-2 dark:bg-stone-900/50 w-full text-sm font-medium pointer-events-none  h-1/5 items-center">

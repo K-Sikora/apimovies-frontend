@@ -98,8 +98,10 @@ const CategoriesTv = () => {
           {currentCategoryBackdrop && (
             <img
               src={
-                `https://image.tmdb.org/t/p/w1280` +
-                currentCategoryBackdrop.results[0].backdrop_path
+                currentCategoryBackdrop.results[0].backdrop_path !== null
+                  ? `https://image.tmdb.org/t/p/w1280` +
+                    currentCategoryBackdrop.results[0].backdrop_path
+                  : "/images/background-not-found.png"
               }
               className="w-full h-full object-cover absolute top-0 left-0 z-10 "
             />
@@ -117,7 +119,11 @@ const CategoriesTv = () => {
                   <Link to={`/tv/${item.id}`}>
                     <img
                       className=" h-40 w-28 object-cover rounded-l-md pointer-events-none "
-                      src={`https://image.tmdb.org/t/p/w300` + item.poster_path}
+                      src={
+                        item.poster_path !== null
+                          ? `https://image.tmdb.org/t/p/w300` + item.poster_path
+                          : "/images/no-cover.png"
+                      }
                     />
                   </Link>
                 </div>

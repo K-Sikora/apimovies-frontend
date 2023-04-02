@@ -26,7 +26,6 @@ const AdvancedSearch = () => {
     const response = await axios.get(
       "https://apimovies-backend.onrender.com/api/tvgenres"
     );
-    console.log(response.data.genres);
     return response.data;
   };
   const { data: tvGenres } = useQuery({
@@ -74,6 +73,8 @@ const AdvancedSearch = () => {
         chosenGenres.length === 0 ? "b" : chosenGenres.toString()
       }`
     );
+    console.log(response.data);
+
     return response.data;
   };
 
@@ -96,7 +97,6 @@ const AdvancedSearch = () => {
         chosenGenresTv.length === 0 ? "b" : chosenGenresTv.toString()
       }`
     );
-    console.log(response.data);
     return response.data;
   };
 
@@ -271,7 +271,7 @@ const AdvancedSearch = () => {
                                       1
                                     );
                                 }
-                                console.log(chosenGenresTv);
+
                                 refetch2();
                               }}
                               data-id={item.id}
@@ -314,7 +314,11 @@ const AdvancedSearch = () => {
                 <Link to={`/movie/${item.id}`}>
                   <img
                     className=" h-40 w-28 object-cover rounded-l-md pointer-events-none "
-                    src={`https://image.tmdb.org/t/p/w300` + item.poster_path}
+                    src={
+                      item.poster_path !== null
+                        ? `https://image.tmdb.org/t/p/w300` + item.poster_path
+                        : "/images/no-cover.png"
+                    }
                   />
                 </Link>
               </div>
@@ -369,16 +373,20 @@ const AdvancedSearch = () => {
               className="flex h-40 relative transition-colors duration-300 gap-4 bg-light dark:bg-stone-900  shadow-xl dark:shadow-stone-900/60 shadow-stone-900/30 mx-6 mt-6 pr-2 rounded-md"
             >
               <div className=" h-32 flex-shrink-0  ">
-                <Link to={`/movie/${item.id}`}>
+                <Link to={`/tv/${item.id}`}>
                   <img
                     className=" h-40 w-28 object-cover rounded-l-md pointer-events-none "
-                    src={`https://image.tmdb.org/t/p/w300` + item.poster_path}
+                    src={
+                      item.poster_path !== null
+                        ? `https://image.tmdb.org/t/p/w300` + item.poster_path
+                        : "/images/no-cover.png"
+                    }
                   />
                 </Link>
               </div>
               <div className="flex   justify-around flex-col h-full">
                 <div>
-                  <Link to={`/movie/${item.id}`}>
+                  <Link to={`/tv/${item.id}`}>
                     <h4 className="text-base dark:text-light text-dark-900 md:text-xl inline-block">
                       {item.name}
                     </h4>
