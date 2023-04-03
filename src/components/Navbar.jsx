@@ -150,7 +150,7 @@ const Navbar = () => {
                 alt="logo"
               />
               <h2 className="text-base dark:text-light text-dark-900 first-letter:text-emerald-400 -ml-4  tracking-wide font-semibold pointer-events-none">
-                koxstrona
+                watchable
               </h2>
             </Link>
           </motion.div>
