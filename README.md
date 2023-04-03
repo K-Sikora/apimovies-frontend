@@ -1,6 +1,8 @@
 # React and Tailwind CSS frontend for movies/tv shows app
 
-![showcase-4](https://user-images.githubusercontent.com/105585380/229601880-cbf7bb06-663c-4846-b33b-733be2ca66cf.gif)
+
+![gif-showcase](https://user-images.githubusercontent.com/105585380/229607443-9e1dcc42-ec08-49fd-bbe3-7bc600ad29e1.gif)
+
 
 
 ### Live demo: https://musical-torrone-915153.netlify.app
@@ -14,6 +16,7 @@
 - Read descriptions, keywords and genres of particular movie/show
 - Find movies through genres
 - Find similar movies/shows
+- Change between dark and light mode
 
 ### Backend link: https://github.com/K-Sikora/apimovies-backend
 
