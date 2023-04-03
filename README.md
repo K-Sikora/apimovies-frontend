@@ -1,5 +1,10 @@
 # React and Tailwind CSS front-end for movies/tv-shows app
 
+![showcase-4](https://user-images.githubusercontent.com/105585380/229601880-cbf7bb06-663c-4846-b33b-733be2ca66cf.gif)
+
+
+### Live demo: https://musical-torrone-915153.netlify.app
+
 ## Features:
 
 - Find a movie/show through Navbar Search
