@@ -76,7 +76,7 @@ const LandingSwiper = (props) => {
                       </div>
                     </div>
                     <div className="flex w-90% justify-evenly flex-col ">
-                      <h3 className="text-white text-xl font-medium ">
+                      <h3 className="text-white text-lg md:text-xl font-medium ">
                         {item.title || item.name}
                       </h3>
                       <FontAwesomeIcon
