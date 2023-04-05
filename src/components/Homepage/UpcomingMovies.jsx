@@ -35,7 +35,7 @@ const LatestTrailers = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-5 mb-14 dark:text-light text-dark-900">
-      <h2 className=" text-2xl">
+      <h2 className=" text-xl md:text-2xl">
         <span className=" bg-emerald-500 mr-2 px-[2px] rounded-md"></span>
         New and upcoming movies
       </h2>

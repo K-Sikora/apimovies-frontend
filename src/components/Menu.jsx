@@ -133,11 +133,20 @@ const Menu = (props) => {
                     Code
                   </div>
                 </div>
-                <button className="flex items-center gap-1 text-lg justify-center">
-                  <a href="#">
-                    <AiFillGithub className="w-8 h-8 " />
+                <div className="flex gap-4">
+                  <a href="https://github.com/K-Sikora/apimovies-frontend">
+                    <button className="flex items-center gap-1 text-lg justify-center">
+                      <AiFillGithub className="w-8 h-8 " />
+                      <h4 className="text-sm md:text-base">Frontend</h4>
+                    </button>
                   </a>
-                </button>
+                  <a href="https://github.com/K-Sikora/apimovies-backend">
+                    <button className="flex items-center gap-1 text-lg justify-center">
+                      <AiFillGithub className="w-8 h-8 " />
+                      <h4 className="text-sm md:text-base">Backend</h4>
+                    </button>
+                  </a>
+                </div>
               </div>
               <div className=" flex flex-col gap-5 items-center  justify-center pb-10">
                 <div className="text-lg h-14  md:text-3xl justify-center items-center pointer-events-none bg-gradient-to-r rounded-md from-emerald-200 via-emerald-400 to-emerald-600 pb-1 font-medium ">
