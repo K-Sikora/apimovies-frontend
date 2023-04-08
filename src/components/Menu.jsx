@@ -133,17 +133,17 @@ const Menu = (props) => {
                     Code
                   </div>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-2 md:gap-4">
                   <a href="https://github.com/K-Sikora/apimovies-frontend">
                     <button className="flex items-center gap-1 text-lg justify-center">
                       <AiFillGithub className="w-8 h-8 " />
-                      <h4 className="text-sm md:text-base">Frontend</h4>
+                      <h4 className="text-sm md:text-base">Client</h4>
                     </button>
                   </a>
                   <a href="https://github.com/K-Sikora/apimovies-backend">
                     <button className="flex items-center gap-1 text-lg justify-center">
                       <AiFillGithub className="w-8 h-8 " />
-                      <h4 className="text-sm md:text-base">Backend</h4>
+                      <h4 className="text-sm md:text-base">Server</h4>
                     </button>
                   </a>
                 </div>
@@ -161,7 +161,7 @@ const Menu = (props) => {
                   className=""
                 >
                   <img
-                    className="w-24 md:w-40 h-8"
+                    className="w-24 md:w-40 h-16"
                     src="/images/tmdb.svg"
                     alt="tmdb logo"
                   />
