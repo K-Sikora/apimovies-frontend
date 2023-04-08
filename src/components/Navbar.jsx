@@ -142,11 +142,11 @@ const Navbar = () => {
           >
             <Link
               to="/"
-              className="flex justify-start items-center gap-6 text-emerald-50 "
+              className="flex justify-start items-center gap-5 text-emerald-50 "
             >
               <img
                 src="/logo.png"
-                className="w-8"
+                className="w-10 brightness-125"
                 alt="logo"
               />
               <h2 className="text-base dark:text-light text-dark-900 first-letter:text-emerald-400 -ml-4  tracking-wide font-semibold pointer-events-none">
