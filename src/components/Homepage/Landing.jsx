@@ -6,7 +6,7 @@ import Loading from "../Loading";
 const Landing = () => {
   const getTrendingWeek = async () => {
     const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/trending-week"
+      "https://app-backend.adaptable.app/api/trending-week"
     );
     return response.data.results;
   };

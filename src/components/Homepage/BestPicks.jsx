@@ -15,7 +15,7 @@ import TrailerPopup from "./TrailerPopup";
 const BestPicks = () => {
   const getBestMovies = async () => {
     const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/bestmovies"
+      "https://app-backend.adaptable.app/api/bestmovies"
     );
 
     return response.data.results;

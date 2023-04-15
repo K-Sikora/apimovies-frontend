@@ -19,7 +19,7 @@ const SingleItem = () => {
 
   const getItemData = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/${itemType}/${id}`
+      `https://app-backend.adaptable.app/api/${itemType}/${id}`
     );
     return response.data;
   };
@@ -34,7 +34,7 @@ const SingleItem = () => {
 
   const getKeywords = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/${itemType}/keywords/${id}`
+      `https://app-backend.adaptable.app/api/${itemType}/keywords/${id}`
     );
     return response.data;
   };
@@ -49,7 +49,7 @@ const SingleItem = () => {
 
   const getSimilar = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/${itemType}/similar/${id}`
+      `https://app-backend.adaptable.app/api/${itemType}/similar/${id}`
     );
     return response.data;
   };

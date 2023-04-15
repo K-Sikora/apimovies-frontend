@@ -21,7 +21,7 @@ const Menu = (props) => {
   const navigate = useNavigate();
   const getRandomMovie = async () => {
     const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/movie-random"
+      "https://app-backend.adaptable.app/api/movie-random"
     );
     return response.data.results;
   };
@@ -38,7 +38,7 @@ const Menu = (props) => {
   };
   const getRandomTv = async () => {
     const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/tv-random"
+      "https://app-backend.adaptable.app/api/tv-random"
     );
     return response.data.results;
   };

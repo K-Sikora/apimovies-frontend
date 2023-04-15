@@ -6,7 +6,7 @@ import axios from "axios";
 const TrailerTvPopup = (props) => {
   const getTrailer = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/tv/trailer/${props.movieId}`
+      `https://app-backend.adaptable.app/api/tv/trailer/${props.movieId}`
     );
     return response.data;
   };

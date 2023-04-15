@@ -12,7 +12,7 @@ const AdvancedSearch = () => {
   const [TvCategoriesVisible, setTvCategoriesVisible] = useState(false);
   const getGenres = async () => {
     const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/moviegenres"
+      "https://app-backend.adaptable.app/api/moviegenres"
     );
     return response.data;
   };
@@ -24,7 +24,7 @@ const AdvancedSearch = () => {
 
   const getTvGenres = async () => {
     const response = await axios.get(
-      "https://apimovies-backend.onrender.com/api/tvgenres"
+      "https://app-backend.adaptable.app/api/tvgenres"
     );
     return response.data;
   };
@@ -69,7 +69,7 @@ const AdvancedSearch = () => {
   //movie call
   const getMovieResults = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/movie-advanced/${movieYear}/${sortMovie}/${
+      `https://app-backend.adaptable.app/api/movie-advanced/${movieYear}/${sortMovie}/${
         chosenGenres.length === 0 ? "b" : chosenGenres.toString()
       }`
     );
@@ -92,7 +92,7 @@ const AdvancedSearch = () => {
   //tv call
   const getTvResults = async () => {
     const response = await axios.get(
-      `https://apimovies-backend.onrender.com/api/tv-advanced/${movieYear}/${sortMovie}/${
+      `https://app-backend.adaptable.app/api/tv-advanced/${movieYear}/${sortMovie}/${
         chosenGenresTv.length === 0 ? "b" : chosenGenresTv.toString()
       }`
     );
