@@ -7,7 +7,7 @@ This repository contains the code for a movie and TV show search application tha
 
 
 # Live demo
-### A live demo of this application can be found <a href="https://musical-torrone-915153.netlify.app">here</a> 
+### A live demo of this application can be found <a href="https://watchable-app.netlify.app">here</a> 
 
 # Features
 ### The following features are available in this application:
