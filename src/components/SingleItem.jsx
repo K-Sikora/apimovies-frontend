@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
+import Layout from "../Layouts/Layout";
 import { useParams } from "react-router-dom";
 import Similar from "./SingleItem/Similar";
 import Keywords from "./SingleItem/Keywords";
@@ -64,49 +64,50 @@ const SingleItem = () => {
   }
   return (
     <div className=" dark:text-light text-dark-900">
-      <Navbar />
-      <div className="max-w-6xl mx-auto">
-        {itemData && (
-          <div className="min-h-screen gap-6 dark:bg-dark-900 bg-stone-100 duration-300 flex flex-col py-5 px-0 justify-start">
-            {isLoading2 ? (
-              <Loading />
-            ) : (
-              <ItemInfo
-                episodesVisible={episodesVisible}
-                setEpisodesVisible={setEpisodesVisible}
+      <Layout>
+        <div className="max-w-6xl mx-auto">
+          {itemData && (
+            <div className="min-h-screen gap-6 dark:bg-dark-900 bg-stone-100 duration-300 flex flex-col py-5 px-0 justify-start">
+              {isLoading2 ? (
+                <Loading />
+              ) : (
+                <ItemInfo
+                  episodesVisible={episodesVisible}
+                  setEpisodesVisible={setEpisodesVisible}
+                  itemData={itemData}
+                />
+              )}
+
+              <ItemCoverImage
+                id={id}
                 itemData={itemData}
-              />
-            )}
-
-            <ItemCoverImage
-              id={id}
-              itemData={itemData}
-              itemType={itemType}
-            />
-            <ItemDetails
-              itemData={itemData}
-              keyword={keyword}
-              setIsVisibleKeywords={setIsVisibleKeywords}
-              isVisibleKeywords={isVisibleKeywords}
-            />
-
-            <Keywords
-              isVisibleKeywords={isVisibleKeywords}
-              keyword={keyword}
-              itemData={itemData}
-              itemType={itemType}
-            />
-            {isLoading ? (
-              <Loading />
-            ) : (
-              <Similar
-                similar={similar}
                 itemType={itemType}
               />
-            )}
-          </div>
-        )}
-      </div>
+              <ItemDetails
+                itemData={itemData}
+                keyword={keyword}
+                setIsVisibleKeywords={setIsVisibleKeywords}
+                isVisibleKeywords={isVisibleKeywords}
+              />
+
+              <Keywords
+                isVisibleKeywords={isVisibleKeywords}
+                keyword={keyword}
+                itemData={itemData}
+                itemType={itemType}
+              />
+              {isLoading ? (
+                <Loading />
+              ) : (
+                <Similar
+                  similar={similar}
+                  itemType={itemType}
+                />
+              )}
+            </div>
+          )}
+        </div>
+      </Layout>
     </div>
   );
 };

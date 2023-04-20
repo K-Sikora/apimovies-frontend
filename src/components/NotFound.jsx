@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
 import { motion, useCycle } from "framer-motion";
+import Layout from "../Layouts/Layout";
 const NotFound = () => {
   const [opacity, cycleOpacity] = useCycle(0, 1);
   useEffect(() => {
@@ -18,8 +18,7 @@ const NotFound = () => {
 
   const [loadingError, setLoadingError] = useState(false);
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div className="dark:bg-stone-900 bg-light dark:text-light text-dark-900 flex-col min-h-screen gap-8 flex items-center relative -mt-16 md:-mt-20 justify-center">
         <div className="flex gap-4">
           <motion.div
@@ -52,7 +51,7 @@ const NotFound = () => {
           </motion.div>
         )}
       </div>
-    </>
+    </Layout>
   );
 };
 
